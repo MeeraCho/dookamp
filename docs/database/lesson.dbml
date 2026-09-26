@@ -1,0 +1,294 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+// DOOKAMP Lesson Database
+// Lesson-level quiz design; localized content uses *Language tables.
+
+// ========================================
+// FILTER
+// ========================================
+
+Table Location {
+  Id integer [pk, increment]
+  Name varchar(100) [not null]
+  Code varchar(20) [not null, unique]
+  Country varchar(100) [not null]
+}
+
+Table Grade {
+  Id integer [pk, increment]
+  Name varchar(50) [not null, unique]
+}
+
+Table LessonLocationGrade {
+  Id integer [pk, increment]
+  LessonId integer [not null]
+  LocationId integer [not null]
+  GradeId integer [not null]
+
+  indexes {
+    (LessonId, LocationId, GradeId) [unique]
+  }
+}
+
+// ========================================
+// LANGUAGE
+// ========================================
+
+Table Language {
+  Id integer [pk, increment]
+  Code varchar(10) [not null, unique]
+  Name varchar(100) [not null, unique]
+}
+
+// ========================================
+// CORE
+// ========================================
+
+Table Subject {
+  Id integer [pk, increment]
+  Name varchar(100) [not null, unique]
+}
+
+Table Topic {
+  Id integer [pk, increment]
+  Name varchar(200) [not null]
+  ParentTopicId integer
+  SubjectId integer [not null]
+  Description text
+
+  indexes {
+    (SubjectId, Name) [unique]
+  }
+}
+
+Table Lesson {
+  Id integer [pk, increment]
+  TopicId integer [not null]
+  IsPublished boolean [not null, default: false]
+  CreatedAt datetime [not null]
+  UpdatedAt datetime [not null]
+}
+
+Table LessonLanguage {
+  Id integer [pk, increment]
+  LessonId integer [not null]
+  LanguageId integer [not null]
+  Name varchar(200) [not null]
+  Description text
+
+  indexes {
+    (LessonId, LanguageId) [unique]
+  }
+}
+
+// ========================================
+// LEARNING CONTENT
+// ========================================
+
+Table LessonContent {
+  Id integer [pk, increment]
+  LessonId integer [not null]
+  SortOrder integer [not null]
+
+  indexes {
+    (LessonId, SortOrder) [unique]
+  }
+}
+
+Table LessonContentLanguage {
+  Id integer [pk, increment]
+  LessonContentId integer [not null]
+  LanguageId integer [not null]
+  Text text [not null]
+
+  indexes {
+    (LessonContentId, LanguageId) [unique]
+  }
+}
+
+// ========================================
+// VOCABULARY
+// ========================================
+
+Table Vocabulary {
+  Id integer [pk, increment]
+}
+
+Table VocabularyLanguage {
+  Id integer [pk, increment]
+  VocabularyId integer [not null]
+  LanguageId integer [not null]
+  Word varchar(200) [not null]
+  Definition text [not null]
+
+  indexes {
+    (VocabularyId, LanguageId) [unique]
+  }
+}
+
+Table LessonContentVocabulary {
+  Id integer [pk, increment]
+  LessonContentId integer [not null]
+  VocabularyId integer [not null]
+
+  indexes {
+    (LessonContentId, VocabularyId) [unique]
+  }
+}
+
+// ========================================
+// MEDIA
+// ========================================
+
+Table Media {
+  Id integer [pk, increment]
+  MediaType varchar(30) [not null]
+  Url varchar(2048) [not null]
+  AltText varchar(500)
+}
+
+Table LessonContentMedia {
+  LessonContentId integer [not null]
+  MediaId integer [not null]
+
+  indexes {
+    (LessonContentId, MediaId) [pk]
+  }
+}
+
+Table VocabularyMedia {
+  VocabularyId integer [not null]
+  MediaId integer [not null]
+
+  indexes {
+    (VocabularyId, MediaId) [pk]
+  }
+}
+
+// ========================================
+// AUDIO
+// ========================================
+
+Table LessonContentAudio {
+  Id integer [pk, increment]
+  LessonContentId integer [not null]
+  LanguageId integer [not null]
+  AudioUrl varchar(2048) [not null]
+
+  indexes {
+    (LessonContentId, LanguageId) [unique]
+  }
+}
+
+Table VocabularyAudio {
+  Id integer [pk, increment]
+  VocabularyId integer [not null]
+  LanguageId integer [not null]
+  AudioUrl varchar(2048) [not null]
+
+  indexes {
+    (VocabularyId, LanguageId) [unique]
+  }
+}
+
+// ========================================
+// ACTIVITY
+// ========================================
+
+Table QuestionType {
+  Id integer [pk, increment]
+  Name varchar(50) [not null, unique]
+}
+
+Table QuizQuestion {
+  Id integer [pk, increment]
+  LessonId integer [not null]
+  QuestionTypeId integer [not null]
+  SortOrder integer [not null]
+
+  indexes {
+    (LessonId, SortOrder) [unique]
+  }
+}
+
+Table QuizQuestionLanguage {
+  Id integer [pk, increment]
+  QuizQuestionId integer [not null]
+  LanguageId integer [not null]
+  QuestionText text [not null]
+
+  indexes {
+    (QuizQuestionId, LanguageId) [unique]
+  }
+}
+
+Table QuizOption {
+  Id integer [pk, increment]
+  QuizQuestionId integer [not null]
+  IsCorrect boolean [not null]
+  SortOrder integer [not null]
+
+  indexes {
+    (QuizQuestionId, SortOrder) [unique]
+  }
+}
+
+Table QuizOptionLanguage {
+  Id integer [pk, increment]
+  QuizOptionId integer [not null]
+  LanguageId integer [not null]
+  Text varchar(500) [not null]
+
+  indexes {
+    (QuizOptionId, LanguageId) [unique]
+  }
+}
+
+// ========================================
+// RELATIONSHIPS
+// ========================================
+
+// Filter
+Ref: LessonLocationGrade.LessonId > Lesson.Id
+Ref: LessonLocationGrade.LocationId > Location.Id
+Ref: LessonLocationGrade.GradeId > Grade.Id
+
+// Core
+Ref: Topic.SubjectId > Subject.Id
+Ref: Topic.ParentTopicId > Topic.Id
+Ref: Lesson.TopicId > Topic.Id
+Ref: LessonLanguage.LessonId > Lesson.Id
+Ref: LessonLanguage.LanguageId > Language.Id
+
+// Learning Content
+Ref: LessonContent.LessonId > Lesson.Id
+Ref: LessonContentLanguage.LessonContentId > LessonContent.Id
+Ref: LessonContentLanguage.LanguageId > Language.Id
+
+// Vocabulary
+Ref: VocabularyLanguage.VocabularyId > Vocabulary.Id
+Ref: VocabularyLanguage.LanguageId > Language.Id
+Ref: LessonContentVocabulary.LessonContentId > LessonContent.Id
+Ref: LessonContentVocabulary.VocabularyId > Vocabulary.Id
+
+// Media
+Ref: LessonContentMedia.LessonContentId > LessonContent.Id
+Ref: LessonContentMedia.MediaId > Media.Id
+Ref: VocabularyMedia.VocabularyId > Vocabulary.Id
+Ref: VocabularyMedia.MediaId > Media.Id
+
+// Audio
+Ref: LessonContentAudio.LessonContentId > LessonContent.Id
+Ref: LessonContentAudio.LanguageId > Language.Id
+Ref: VocabularyAudio.VocabularyId > Vocabulary.Id
+Ref: VocabularyAudio.LanguageId > Language.Id
+
+// Activity
+Ref: QuizQuestion.LessonId > Lesson.Id
+Ref: QuizQuestion.QuestionTypeId > QuestionType.Id
+Ref: QuizQuestionLanguage.QuizQuestionId > QuizQuestion.Id
+Ref: QuizQuestionLanguage.LanguageId > Language.Id
+Ref: QuizOption.QuizQuestionId > QuizQuestion.Id
+Ref: QuizOptionLanguage.QuizOptionId > QuizOption.Id
+Ref: QuizOptionLanguage.LanguageId > Language.Id

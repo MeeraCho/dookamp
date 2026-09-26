@@ -1,0 +1,19 @@
+@baseUrl = http://127.0.0.1:5077
+
+### Health
+GET {{baseUrl}}/health
+
+### Locations
+GET {{baseUrl}}/api/locations
+
+### Lesson in English
+GET {{baseUrl}}/api/lessons/1?languageId=1
+
+### Lesson in Korean
+GET {{baseUrl}}/api/lessons/1?languageId=2
+
+### Vocabulary in Korean
+GET {{baseUrl}}/api/lessons/1/vocabulary?languageId=2
+
+### Quiz in Korean
+GET {{baseUrl}}/api/lessons/1/quiz?languageId=2
