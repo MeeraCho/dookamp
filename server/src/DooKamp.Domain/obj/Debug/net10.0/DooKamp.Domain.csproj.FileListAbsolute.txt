@@ -1,0 +1,12 @@
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/bin/Debug/net10.0/DooKamp.Domain.deps.json
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/bin/Debug/net10.0/DooKamp.Domain.dll
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/bin/Debug/net10.0/DooKamp.Domain.pdb
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/obj/Debug/net10.0/DooKamp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/obj/Debug/net10.0/DooKamp.Domain.AssemblyInfoInputs.cache
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/obj/Debug/net10.0/DooKamp.Domain.AssemblyInfo.cs
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/obj/Debug/net10.0/DooKamp.Domain.csproj.CoreCompileInputs.cache
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/obj/Debug/net10.0/DooKamp.Domain.sourcelink.json
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/obj/Debug/net10.0/DooKamp.Domain.dll
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/obj/Debug/net10.0/refint/DooKamp.Domain.dll
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/obj/Debug/net10.0/DooKamp.Domain.pdb
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/obj/Debug/net10.0/ref/DooKamp.Domain.dll

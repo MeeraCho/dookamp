@@ -1,0 +1,16 @@
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/bin/Debug/net10.0/DooKamp.Application.deps.json
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/bin/Debug/net10.0/DooKamp.Application.dll
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/bin/Debug/net10.0/DooKamp.Application.pdb
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/bin/Debug/net10.0/DooKamp.Domain.dll
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/bin/Debug/net10.0/DooKamp.Domain.pdb
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/obj/Debug/net10.0/DooKamp.Application.csproj.AssemblyReference.cache
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/obj/Debug/net10.0/DooKamp.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/obj/Debug/net10.0/DooKamp.Application.AssemblyInfoInputs.cache
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/obj/Debug/net10.0/DooKamp.Application.AssemblyInfo.cs
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/obj/Debug/net10.0/DooKamp.Application.csproj.CoreCompileInputs.cache
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/obj/Debug/net10.0/DooKamp.Application.sourcelink.json
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/obj/Debug/net10.0/DooKamp..D4EEFA74.Up2Date
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/obj/Debug/net10.0/DooKamp.Application.dll
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/obj/Debug/net10.0/refint/DooKamp.Application.dll
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/obj/Debug/net10.0/DooKamp.Application.pdb
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/obj/Debug/net10.0/ref/DooKamp.Application.dll
