@@ -1,0 +1,6 @@
+@DooKamp.Api_HostAddress = http://localhost:5186
+
+GET {{DooKamp.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

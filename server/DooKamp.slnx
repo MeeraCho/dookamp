@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/DooKamp.Api/DooKamp.Api.csproj" />
+    <Project Path="src/DooKamp.Application/DooKamp.Application.csproj" />
+    <Project Path="src/DooKamp.Domain/DooKamp.Domain.csproj" />
+    <Project Path="src/DooKamp.Infrastructure/DooKamp.Infrastructure.csproj" />
+  </Folder>
+</Solution>
