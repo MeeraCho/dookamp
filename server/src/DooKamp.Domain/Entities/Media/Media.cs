@@ -1,0 +1,18 @@
+using DooKamp.Domain.Enums;
+
+namespace DooKamp.Domain.Entities.Media;
+
+public sealed class Media : Entity
+{
+    private Media() { }
+
+    public Media(MediaType mediaType, string url)
+    {
+        MediaType = mediaType;
+        Url = url;
+    }
+
+    public MediaType MediaType { get; private set; }
+
+    public string Url { get; private set; } = string.Empty;
+}
