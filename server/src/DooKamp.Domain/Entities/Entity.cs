@@ -1,6 +1,6 @@
 namespace DooKamp.Domain.Entities;
-public abstract class Entity<TId>
+public abstract class Entity<TId> where TId : notnull
 {
-    public TId Id { get; protected set; }
+    public TId Id { get; protected set; } = default!;
 
 }
