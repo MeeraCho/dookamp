@@ -1,6 +1,6 @@
 namespace DooKamp.Domain.Entities.Vocabulary;
 
-public sealed class VocabularyLanguage : Entity
+public sealed class VocabularyLanguage : Entity<int>
 {
     private VocabularyLanguage() { }
 

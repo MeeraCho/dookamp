@@ -8,15 +8,15 @@
     ".NETCoreApp,Version=v10.0": {
       "DooKamp.Application/1.0.0": {
         "dependencies": {
-          "DooKamp.Domain": "1.0.0"
+          "Dookamp.Domain": "1.0.0"
         },
         "runtime": {
           "DooKamp.Application.dll": {}
         }
       },
-      "DooKamp.Domain/1.0.0": {
+      "Dookamp.Domain/1.0.0": {
         "runtime": {
-          "DooKamp.Domain.dll": {
+          "Dookamp.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -30,7 +30,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "DooKamp.Domain/1.0.0": {
+    "Dookamp.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

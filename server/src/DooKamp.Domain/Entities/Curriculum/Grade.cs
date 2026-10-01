@@ -1,5 +1,5 @@
 namespace DooKamp.Domain.Entities.Curriculum;
-public sealed class Grade : Entity
+public sealed class Grade : Entity<int>
 {
     private Grade() { }
     public Grade(string name)

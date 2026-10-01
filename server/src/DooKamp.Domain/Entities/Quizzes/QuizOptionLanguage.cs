@@ -1,6 +1,6 @@
 namespace DooKamp.Domain.Entities.Quizzes;
 
-public sealed class QuizOptionLanguage : Entity
+public sealed class QuizOptionLanguage : Entity<int>
 {
     private QuizOptionLanguage() { }
 

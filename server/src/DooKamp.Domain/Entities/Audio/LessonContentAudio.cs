@@ -1,6 +1,6 @@
 namespace DooKamp.Domain.Entities.Lessons;
 
-public sealed class LessonContentAudio : Entity
+public sealed class LessonContentAudio : Entity<int>
 {
     private LessonContentAudio() { }
 

@@ -1,6 +1,6 @@
 namespace DooKamp.Domain.Entities.Curriculum;
 
-public sealed class Location : Entity
+public sealed class Location : Entity<int>
 {
     private Location() { }
 

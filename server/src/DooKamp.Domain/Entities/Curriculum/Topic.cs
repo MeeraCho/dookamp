@@ -1,6 +1,6 @@
 namespace DooKamp.Domain.Entities.Curriculum;
 
-public sealed class Topic : Entity
+public sealed class Topic : Entity<int>
 {
     private Topic() { }
 

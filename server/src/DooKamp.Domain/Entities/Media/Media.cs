@@ -2,7 +2,7 @@ using DooKamp.Domain.Enums;
 
 namespace DooKamp.Domain.Entities.Media;
 
-public sealed class Media : Entity
+public sealed class Media : Entity<int>
 {
     private Media() { }
 

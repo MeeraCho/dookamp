@@ -1,6 +1,6 @@
 namespace DooKamp.Domain.Entities.Language;
 
-public sealed class Language : Entity
+public sealed class Language : Entity<int>
 {
     private Language() { }
 

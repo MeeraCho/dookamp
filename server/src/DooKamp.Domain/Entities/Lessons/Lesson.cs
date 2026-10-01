@@ -1,7 +1,7 @@
 using DooKamp.Domain.Enums;
 namespace DooKamp.Domain.Entities.Lessons;
 
-public sealed class Lesson : Entity
+public sealed class Lesson : Entity<int>
 {
     private Lesson() { }
 
@@ -15,7 +15,7 @@ public sealed class Lesson : Entity
         Description = description;
         CreatedAt = DateTime.UtcNow;
         UpdatedAt = DateTime.UtcNow;
-        Status = LessonStatus.Draft;        
+        Status = LessonStatus.Published; //default to published     
     }
 
     public string Title { get; private set; } = string.Empty;

@@ -1,6 +1,6 @@
 namespace DooKamp.Domain.Entities.Quizzes;
 
-public sealed class QuestionType : Entity
+public sealed class QuestionType : Entity<int>
 {
     private QuestionType() { }
 

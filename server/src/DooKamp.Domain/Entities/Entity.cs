@@ -1,6 +1,6 @@
 namespace DooKamp.Domain.Entities;
-public abstract class Entity
+public abstract class Entity<TId>
 {
-    public int Id { get; protected set; }
+    public TId Id { get; protected set; }
 
 }

@@ -1,6 +1,6 @@
 namespace DooKamp.Domain.Entities.Media;
 
-public sealed class LessonContentMedia
+public sealed class LessonContentMedia: Entity<int>
 {
     private LessonContentMedia() { }
 

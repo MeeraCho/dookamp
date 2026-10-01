@@ -2,7 +2,7 @@ using DooKamp.Domain.Entities.Curriculum;
 
 namespace DooKamp.Domain.Entities.Lessons;
 
-public sealed class LessonLocationGrade : Entity
+public sealed class LessonLocationGrade : Entity<int>
 {
     private LessonLocationGrade() { }
 
