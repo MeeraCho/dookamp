@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DooKamp.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+00605b7d6c4dca2aed2087236f7475209b144360")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11b81170d023e18aa2ac3b6047a04ea7caed62d6")]
 [assembly: System.Reflection.AssemblyProductAttribute("DooKamp.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DooKamp.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
