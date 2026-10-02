@@ -1,4 +1,6 @@
-namespace DooKamp.Domain.Entities.Lessons;
+using DooKamp.Domain.Entities.Languages;
+using DooKamp.Domain.Entities.Lessons;
+namespace DooKamp.Domain.Entities.Audio;
 
 public sealed class LessonContentAudio : Entity<int>
 {
@@ -19,4 +21,8 @@ public sealed class LessonContentAudio : Entity<int>
     public int LanguageId { get; private set; }
 
     public string? AudioUrl { get; private set; }
+    
+    public LessonContent LessonContent { get; private set; } = null!;
+		
+    public Language Language { get; private set; } = null!; 
 }

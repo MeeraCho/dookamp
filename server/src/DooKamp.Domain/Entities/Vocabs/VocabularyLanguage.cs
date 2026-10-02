@@ -1,4 +1,6 @@
-namespace DooKamp.Domain.Entities.Vocabulary;
+using DooKamp.Domain.Entities.Languages;
+
+namespace DooKamp.Domain.Entities.Vocabs;
 
 public sealed class VocabularyLanguage : Entity<int>
 {
@@ -23,4 +25,9 @@ public sealed class VocabularyLanguage : Entity<int>
     public string Word { get; private set; } = string.Empty;
 
     public string Definition { get; private set; } = string.Empty;
+    
+    // Navigation Properties
+    public Vocabulary Vocabulary { get; private set; } = null!;
+
+    public Language Language { get; private set; } = null!;
 }

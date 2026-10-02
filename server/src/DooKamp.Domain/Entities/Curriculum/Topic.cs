@@ -1,3 +1,5 @@
+using DooKamp.Domain.Entities.Lessons;
+
 namespace DooKamp.Domain.Entities.Curriculum;
 
 public sealed class Topic : Entity<int>
@@ -23,4 +25,15 @@ public sealed class Topic : Entity<int>
     public int SubjectId { get; private set; }
 
     public string? Description { get; private set; }
+
+    // Subject relationship
+    public Subject Subject { get; private set; } = null!;
+
+    // Self-referencing relationship
+    public Topic? ParentTopic { get; private set; }
+
+    public IReadOnlyCollection<Topic> ChildTopics { get; private set; } = new List<Topic>();
+
+    // Lessons belonging to this topic 
+    public IReadOnlyCollection<Lesson> Lessons { get; private set; } = new List<Lesson>();
 }

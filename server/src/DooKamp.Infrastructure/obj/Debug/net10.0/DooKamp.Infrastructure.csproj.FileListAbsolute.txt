@@ -16,3 +16,5 @@
 /Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Infrastructure/obj/Debug/net10.0/refint/DooKamp.Infrastructure.dll
 /Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Infrastructure/obj/Debug/net10.0/DooKamp.Infrastructure.pdb
 /Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Infrastructure/obj/Debug/net10.0/ref/DooKamp.Infrastructure.dll
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Infrastructure/bin/Debug/net10.0/DooKamp.Infrastructure.runtimeconfig.json
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Infrastructure/obj/Debug/net10.0/DooKamp.Infrastructure.genruntimeconfig.cache

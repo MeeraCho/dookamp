@@ -21,4 +21,9 @@ public sealed class LessonLocationGrade : Entity<int>
     public int LocationId { get; private set; }
 
     public int GradeId { get; private set; }
+
+    // Navigation Properties
+    public Lesson Lesson { get; private set; } = null!;
+    public Location Location { get; private set; } = null!;
+    public Grade Grade { get; private set; } = null!;
 }

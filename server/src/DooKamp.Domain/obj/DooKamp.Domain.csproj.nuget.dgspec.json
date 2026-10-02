@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/Dookamp.Domain.csproj": {}
+    "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/DooKamp.Domain.csproj": {}
   },
   "projects": {
-    "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/Dookamp.Domain.csproj": {
+    "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/DooKamp.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/Dookamp.Domain.csproj",
-        "projectName": "Dookamp.Domain",
-        "projectPath": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/Dookamp.Domain.csproj",
+        "projectUniqueName": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/DooKamp.Domain.csproj",
+        "projectName": "DooKamp.Domain",
+        "projectPath": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/DooKamp.Domain.csproj",
         "packagesPath": "/Users/mira/.nuget/packages/",
         "outputPath": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/obj/",
         "projectStyle": "PackageReference",

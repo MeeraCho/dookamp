@@ -19,4 +19,10 @@ public sealed class QuizOption : Entity<int>
     public bool IsCorrect { get; private set; }
 
     public int Order { get; private set; }
+
+    // Navigation Properties
+    public QuizQuestion QuizQuestion { get; private set; } = null!;
+
+    public IReadOnlyCollection<QuizOptionLanguage> Languages
+        { get; private set; } = new List<QuizOptionLanguage>();
 }

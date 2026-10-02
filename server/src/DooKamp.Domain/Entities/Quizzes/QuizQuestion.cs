@@ -1,3 +1,5 @@
+using DooKamp.Domain.Entities.Lessons;
+
 namespace DooKamp.Domain.Entities.Quizzes;
 
 public sealed class QuizQuestion : Entity<int>
@@ -5,18 +7,35 @@ public sealed class QuizQuestion : Entity<int>
     private QuizQuestion() { }
 
     public QuizQuestion(
-        int quizId,
+        int lessonId,
+        int? lessonContentId,
         int questionTypeId,
         int order)
     {
-        QuizId = quizId;
+        LessonId = lessonId;
+        LessonContentId = lessonContentId;
         QuestionTypeId = questionTypeId;
         Order = order;
     }
 
-    public int QuizId { get; private set; }
+    public int LessonId { get; private set; }
+
+    public int? LessonContentId { get; private set; }
 
     public int QuestionTypeId { get; private set; }
 
     public int Order { get; private set; }
+
+    // Navigation Properties
+    public Lesson Lesson { get; private set; } = null!;
+
+    public LessonContent? LessonContent { get; private set; }
+
+    public QuestionType QuestionType { get; private set; } = null!;
+
+    public ICollection<QuizQuestionLanguage> Languages
+        { get; private set; } = new List<QuizQuestionLanguage>();
+
+    public ICollection<QuizOption> Options
+        { get; private set; } = new List<QuizOption>();
 }

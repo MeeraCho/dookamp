@@ -15,4 +15,11 @@ public sealed class Media : Entity<int>
     public MediaType MediaType { get; private set; }
 
     public string Url { get; private set; } = string.Empty;
+
+    // Navigation Properties
+    public IReadOnlyCollection<LessonContentMedia> LessonContentMedias
+        { get; private set; } = new List<LessonContentMedia>();
+
+    public IReadOnlyCollection<VocabularyMedia> VocabularyMedias
+        { get; private set; } = new List<VocabularyMedia>();
 }

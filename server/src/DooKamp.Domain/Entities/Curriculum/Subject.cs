@@ -10,4 +10,7 @@ public sealed class Subject : Entity<int>
     }
 
     public string Name { get; private set; } = string.Empty;
+
+    public IReadOnlyCollection<Topic> Topics 
+        { get; private set; } = new List<Topic>();
 }

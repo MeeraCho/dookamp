@@ -10,4 +10,8 @@ public sealed class QuestionType : Entity<int>
     }
 
     public string Name { get; private set; } = string.Empty;
+
+    // Navigation Properties
+    public IReadOnlyCollection<QuizQuestion> QuizQuestions
+        { get; private set; } = new List<QuizQuestion>();
 }
