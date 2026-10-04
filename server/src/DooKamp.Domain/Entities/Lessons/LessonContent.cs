@@ -38,5 +38,5 @@ public sealed class LessonContent : Entity<int>
         { get; private set; } = new List<LessonContentAudio>(); 
 		
     public IReadOnlyCollection<QuizQuestion> QuizQuestions
-        { get; private set; } = new List<QuizQuestion>();            
+        { get; private set; } = new List<QuizQuestion>();
 }

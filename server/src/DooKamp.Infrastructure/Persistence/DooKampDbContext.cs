@@ -54,4 +54,11 @@ public class DooKampDbContext : DbContext
     public DbSet<Vocabulary> Vocabularies => Set<Vocabulary>();
     public DbSet<VocabularyLanguage> VocabularyLanguages => Set<VocabularyLanguage>();
     
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(
+            typeof(DooKampDbContext).Assembly);
+    }
 }
