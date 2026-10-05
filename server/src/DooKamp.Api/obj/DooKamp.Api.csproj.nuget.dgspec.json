@@ -521,8 +521,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/DooKamp.Domain.csproj": {
-                "projectPath": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/DooKamp.Domain.csproj"
+              "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/Dookamp.Domain.csproj": {
+                "projectPath": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/Dookamp.Domain.csproj"
               }
             }
           }
@@ -836,12 +836,12 @@
         }
       }
     },
-    "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/DooKamp.Domain.csproj": {
+    "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/Dookamp.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/DooKamp.Domain.csproj",
-        "projectName": "DooKamp.Domain",
-        "projectPath": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/DooKamp.Domain.csproj",
+        "projectUniqueName": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/Dookamp.Domain.csproj",
+        "projectName": "Dookamp.Domain",
+        "projectPath": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/Dookamp.Domain.csproj",
         "packagesPath": "/Users/mira/.nuget/packages/",
         "outputPath": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/obj/",
         "projectStyle": "PackageReference",
@@ -1194,8 +1194,8 @@
               "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/DooKamp.Application.csproj": {
                 "projectPath": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/DooKamp.Application.csproj"
               },
-              "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/DooKamp.Domain.csproj": {
-                "projectPath": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/DooKamp.Domain.csproj"
+              "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/Dookamp.Domain.csproj": {
+                "projectPath": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/Dookamp.Domain.csproj"
               }
             }
           }

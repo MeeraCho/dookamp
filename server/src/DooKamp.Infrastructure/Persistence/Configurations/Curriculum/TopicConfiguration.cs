@@ -17,10 +17,5 @@ public class TopicConfiguration : IEntityTypeConfiguration<Topic>
             .WithMany(x => x.ChildTopics)
             .HasForeignKey(x => x.ParentTopicId)
             .OnDelete(DeleteBehavior.Restrict);
-
-        builder.HasMany(x => x.Lessons)
-            .WithOne(x => x.Topic)
-            .HasForeignKey(x => x.TopicId)
-            .OnDelete(DeleteBehavior.Cascade);
     }
 }

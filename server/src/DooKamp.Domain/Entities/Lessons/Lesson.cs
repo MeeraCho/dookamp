@@ -9,21 +9,17 @@ public sealed class Lesson : Entity<int>
     private Lesson() { }
 
     public Lesson(
-        string title,
-        int topicId,
-        string? description = null)
-    {
-        Title = title;
-        TopicId = topicId;
-        Description = description;
-        CreatedAt = DateTime.UtcNow;
-        UpdatedAt = DateTime.UtcNow;
-        Status = LessonStatus.Published;
-    }
+    string title,
+    string? description = null)
+{
+    Title = title;
+    Description = description;
+    CreatedAt = DateTime.UtcNow;
+    UpdatedAt = DateTime.UtcNow;
+    Status = LessonStatus.Published;
+}
 
     public string Title { get; private set; } = string.Empty;
-
-    public int TopicId { get; private set; }
 
     public string? Description { get; private set; }
 
@@ -35,9 +31,7 @@ public sealed class Lesson : Entity<int>
 
     public DateTime? PublishedAt { get; private set; }
     
-    // Navigation Properties    
-	public Topic Topic { get; private set; } = null!;    
-
+    // Navigation Properties     
     public IReadOnlyCollection<LessonLocationGrade> LessonLocationGrades
 		{ get; private set; } = new List<LessonLocationGrade>();
 
@@ -45,5 +39,8 @@ public sealed class Lesson : Entity<int>
         { get; private set; } = new List<LessonContent>();
 		
     public IReadOnlyCollection<QuizQuestion> QuizQuestions
-        { get; private set; } = new List<QuizQuestion>();        
+        { get; private set; } = new List<QuizQuestion>();  
+    
+    public IReadOnlyCollection<LessonTopic> LessonTopics
+        { get; private set; } = new List<LessonTopic>();
 }

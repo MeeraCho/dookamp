@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v10.0": {
-      "DooKamp.Domain/1.0.0": {
+      "Dookamp.Domain/1.0.0": {
         "runtime": {
-          "DooKamp.Domain.dll": {}
+          "Dookamp.Domain.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "DooKamp.Domain/1.0.0": {
+    "Dookamp.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

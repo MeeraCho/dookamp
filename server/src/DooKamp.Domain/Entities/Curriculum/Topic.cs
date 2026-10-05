@@ -34,6 +34,6 @@ public sealed class Topic : Entity<int>
 
     public IReadOnlyCollection<Topic> ChildTopics { get; private set; } = new List<Topic>();
 
-    // Lessons belonging to this topic 
-    public IReadOnlyCollection<Lesson> Lessons { get; private set; } = new List<Lesson>();
+    // Lessons associated with this topic
+    public IReadOnlyCollection<LessonTopic> LessonTopics { get; private set; } = new List<LessonTopic>();
 }
