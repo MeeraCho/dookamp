@@ -1,8 +1,8 @@
 /Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/bin/Debug/net10.0/DooKamp.Application.deps.json
 /Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/bin/Debug/net10.0/DooKamp.Application.dll
 /Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/bin/Debug/net10.0/DooKamp.Application.pdb
-/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/bin/Debug/net10.0/DooKamp.Domain.dll
-/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/bin/Debug/net10.0/DooKamp.Domain.pdb
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/bin/Debug/net10.0/Dookamp.Domain.dll
+/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/bin/Debug/net10.0/Dookamp.Domain.pdb
 /Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/obj/Debug/net10.0/DooKamp.Application.csproj.AssemblyReference.cache
 /Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/obj/Debug/net10.0/DooKamp.Application.GeneratedMSBuildEditorConfig.editorconfig
 /Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/obj/Debug/net10.0/DooKamp.Application.AssemblyInfoInputs.cache

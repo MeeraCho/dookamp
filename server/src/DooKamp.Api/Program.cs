@@ -1,5 +1,6 @@
 // 1. builder 생성 - 앱 시작점, 각종 설정 불러옴
-using DooKamp.Infrastructure.Data;
+using DooKamp.Infrastructure.Persistence;
+using DooKamp.Infrastructure.Persistence.Seed;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,10 +15,17 @@ builder.Services.AddDbContext<DooKampDbContext>(opt =>
 // 3. 앱 생성. builder -> app으로 전환 
 var app = builder.Build();
 
-// 4. Middleware 연결
+// 4. Database 초기화 
+using (var scope = app.Services.CreateScope())
+{
+	var dbContext = scope.ServiceProvider.GetRequiredService<DooKampDbContext>();
+	await DbInitializer.InitializeAsync(dbContext);
+}
 
-// 5. 엔드포인드 연결. 요청 처리 규칙 설정
+// 5. Middleware 연결
+
+// 6. 엔드포인드 연결. 요청 처리 규칙 설정
 app.MapControllers();
 
-// 6. 서버 실행 - ASP.NET Core 기본 서버는 Kestrel 실행 
+// 7. 서버 실행 - ASP.NET Core 기본 서버는 Kestrel 실행 
 app.Run();

@@ -7,7 +7,7 @@ using DooKamp.Domain.Entities.Quizzes;
 using DooKamp.Domain.Entities.Vocabs;
 using Microsoft.EntityFrameworkCore;
 
-namespace DooKamp.Infrastructure.Data;
+namespace DooKamp.Infrastructure.Persistence;
 
 public class DooKampDbContext : DbContext
 {
