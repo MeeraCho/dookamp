@@ -2,7 +2,7 @@ using DooKamp.Domain.Entities.Vocabs;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace DooKamp.Infrastructure.Persistence.Configurations.Vocabulary;
+namespace DooKamp.Infrastructure.Persistence.Configurations.Vocabs;
 
 public class LessonContentVocabularyConfiguration
     : IEntityTypeConfiguration<LessonContentVocabulary>

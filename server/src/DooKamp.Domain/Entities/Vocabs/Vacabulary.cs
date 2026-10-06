@@ -1,4 +1,3 @@
-using DooKamp.Domain.Entities.Lessons;
 using DooKamp.Domain.Entities.Media;
 using DooKamp.Domain.Entities.Audio;
 
@@ -6,9 +5,13 @@ namespace DooKamp.Domain.Entities.Vocabs;
 
 public sealed class Vocabulary : Entity<int>
 {
-    private Vocabulary()
+    private Vocabulary() { }
+    public Vocabulary(string code)
     {
+        Code = code;
     }
+
+    public string Code { get; private set; } = string.Empty;
 
     public IReadOnlyCollection<LessonContentVocabulary> LessonContentVocabularies
         { get; private set; } = new List<LessonContentVocabulary>();

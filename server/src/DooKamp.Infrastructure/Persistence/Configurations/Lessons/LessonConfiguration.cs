@@ -14,10 +14,5 @@ public sealed class LessonConfiguration : IEntityTypeConfiguration<Lesson>
 
         builder.Property(x => x.Description)
             .HasMaxLength(1000);
-
-        builder.Property(x => x.Status)
-            .IsRequired()
-            .HasConversion<string>()
-            .HasMaxLength(20);
     }
-}
+} 
