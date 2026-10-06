@@ -13,5 +13,8 @@ public static class DbInitializer
         // Seed 
         await LocationSeed.SeedAsync(context);
         await GradeSeed.SeedAsync(context);
+        await LanguageSeed.SeedAsync(context);
+        await SubjectSeed.SeedAsync(context);
+        await TopicSeed.SeedAsync(context);
     }
 }
