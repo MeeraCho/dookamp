@@ -24,5 +24,8 @@ public static class DbInitializer
         await VocabularySeed.SeedAsync(context);
         await VocabularyLanguageSeed.SeedAsync(context);
         await LessonContentVocabularySeed.SeedAsync(context);
+        await QuestionTypeSeed.SeedAsync(context);
+        await QuizQuestionSeed.SeedAsync(context);
+        await QuizQuestionLanguageSeed.SeedAsync(context);
     }
 }

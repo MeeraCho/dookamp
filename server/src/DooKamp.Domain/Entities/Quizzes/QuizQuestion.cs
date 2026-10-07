@@ -7,10 +7,10 @@ public sealed class QuizQuestion : Entity<int>
     private QuizQuestion() { }
 
     public QuizQuestion(
-        int lessonId,
+        int? lessonId,
         int? lessonContentId,
         int questionTypeId,
-        int order)
+        int? order)
     {
         LessonId = lessonId;
         LessonContentId = lessonContentId;
@@ -18,13 +18,13 @@ public sealed class QuizQuestion : Entity<int>
         Order = order;
     }
 
-    public int LessonId { get; private set; }
+    public int? LessonId { get; private set; }
 
     public int? LessonContentId { get; private set; }
 
     public int QuestionTypeId { get; private set; }
 
-    public int Order { get; private set; }
+    public int? Order { get; private set; }
 
     // Navigation Properties
     public Lesson Lesson { get; private set; } = null!;
@@ -33,9 +33,9 @@ public sealed class QuizQuestion : Entity<int>
 
     public QuestionType QuestionType { get; private set; } = null!;
 
-    public ICollection<QuizQuestionLanguage> Languages
+    public IReadOnlyCollection<QuizQuestionLanguage> Languages
         { get; private set; } = new List<QuizQuestionLanguage>();
 
-    public ICollection<QuizOption> Options
+    public IReadOnlyCollection<QuizOption> Options
         { get; private set; } = new List<QuizOption>();
 }

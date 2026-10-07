@@ -12,23 +12,16 @@ public class QuizQuestionConfiguration
         builder.HasOne(x => x.Lesson)
             .WithMany(x => x.QuizQuestions)
             .HasForeignKey(x => x.LessonId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(x => x.LessonContent)
             .WithMany(x => x.QuizQuestions)
             .HasForeignKey(x => x.LessonContentId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(x => x.QuestionType)
             .WithMany(x => x.QuizQuestions)
             .HasForeignKey(x => x.QuestionTypeId)
             .OnDelete(DeleteBehavior.Restrict);
-
-        builder.HasIndex(x => new
-        {
-            x.LessonId,
-            x.Order
-        })
-        .IsUnique();
     }
 }
