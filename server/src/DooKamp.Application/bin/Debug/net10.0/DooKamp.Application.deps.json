@@ -16,9 +16,8 @@
       },
       "Dookamp.Domain/1.0.0": {
         "runtime": {
-          "Dookamp.Domain.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
+          "DooKamp.Domain.dll": {
+            "fileVersion": "0.0.0.0"
           }
         }
       }

@@ -2,28 +2,28 @@
   "version": 3,
   "targets": {
     "net10.0": {
-      "Dookamp.Domain/1.0.0": {
+      "DooKamp.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "compile": {
-          "bin/placeholder/Dookamp.Domain.dll": {}
+          "bin/placeholder/DooKamp.Domain.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Dookamp.Domain.dll": {}
+          "bin/placeholder/DooKamp.Domain.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "Dookamp.Domain/1.0.0": {
+    "DooKamp.Domain/1.0.0": {
       "type": "project",
-      "path": "../DooKamp.Domain/Dookamp.Domain.csproj",
-      "msbuildProject": "../DooKamp.Domain/Dookamp.Domain.csproj"
+      "path": "../DooKamp.Domain/DooKamp.Domain.csproj",
+      "msbuildProject": "../DooKamp.Domain/DooKamp.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
-      "Dookamp.Domain >= 1.0.0"
+      "DooKamp.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -51,8 +51,8 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/Dookamp.Domain.csproj": {
-              "projectPath": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/Dookamp.Domain.csproj"
+            "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/DooKamp.Domain.csproj": {
+              "projectPath": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/DooKamp.Domain.csproj"
             }
           }
         }

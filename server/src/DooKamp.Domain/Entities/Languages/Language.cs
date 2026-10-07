@@ -35,5 +35,8 @@ public sealed class Language : Entity<int>
         { get; private set; } = new List<QuizQuestionLanguage>();
 
     public IReadOnlyCollection<QuizOptionLanguage> QuizOptionLanguages
-        { get; private set; } = new List<QuizOptionLanguage>();   
+        { get; private set; } = new List<QuizOptionLanguage>();
+
+    public IReadOnlyCollection<QuizQuestionAnswer> QuizQuestionAnswers
+        { get; private set; } = new List<QuizQuestionAnswer>();
 }

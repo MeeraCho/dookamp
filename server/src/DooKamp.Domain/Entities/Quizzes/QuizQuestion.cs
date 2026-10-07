@@ -38,4 +38,7 @@ public sealed class QuizQuestion : Entity<int>
 
     public IReadOnlyCollection<QuizOption> Options
         { get; private set; } = new List<QuizOption>();
+        
+    public IReadOnlyCollection<QuizQuestionAnswer> Answers
+        { get; private set; } = new List<QuizQuestionAnswer>();    
 }

@@ -48,7 +48,8 @@ public class DooKampDbContext : DbContext
     public DbSet<QuizOption> QuizOptions => Set<QuizOption>();
     public DbSet<QuizOptionLanguage> QuizOptionLanguages => Set<QuizOptionLanguage>();
     public DbSet<QuizQuestion> QuizQuestions => Set<QuizQuestion>();
-    public DbSet<QuizQuestionLanguage> QuizQuestionLanguages => Set<QuizQuestionLanguage>();		
+    public DbSet<QuizQuestionLanguage> QuizQuestionLanguages => Set<QuizQuestionLanguage>();
+    public DbSet<QuizQuestionAnswer> QuizQuestionAnswers => Set<QuizQuestionAnswer>();
     
     // Vocabulary
     public DbSet<LessonContentVocabulary> LessonContentVocabularies => Set<LessonContentVocabulary>();
