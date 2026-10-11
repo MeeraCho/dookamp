@@ -828,7 +828,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
-          "Dookamp.Domain": "1.0.0"
+          "DooKamp.Domain": "1.0.0"
         },
         "compile": {
           "bin/placeholder/DooKamp.Application.dll": {}
@@ -837,14 +837,14 @@
           "bin/placeholder/DooKamp.Application.dll": {}
         }
       },
-      "Dookamp.Domain/1.0.0": {
+      "DooKamp.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "compile": {
-          "bin/placeholder/Dookamp.Domain.dll": {}
+          "bin/placeholder/DooKamp.Domain.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Dookamp.Domain.dll": {}
+          "bin/placeholder/DooKamp.Domain.dll": {}
         }
       },
       "DooKamp.Infrastructure/1.0.0": {
@@ -852,7 +852,7 @@
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "DooKamp.Application": "1.0.0",
-          "Dookamp.Domain": "1.0.0",
+          "DooKamp.Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore": "10.0.12",
           "Microsoft.EntityFrameworkCore.Sqlite": "10.0.12"
         },
@@ -2495,10 +2495,10 @@
       "path": "../DooKamp.Application/DooKamp.Application.csproj",
       "msbuildProject": "../DooKamp.Application/DooKamp.Application.csproj"
     },
-    "Dookamp.Domain/1.0.0": {
+    "DooKamp.Domain/1.0.0": {
       "type": "project",
-      "path": "../DooKamp.Domain/Dookamp.Domain.csproj",
-      "msbuildProject": "../DooKamp.Domain/Dookamp.Domain.csproj"
+      "path": "../DooKamp.Domain/DooKamp.Domain.csproj",
+      "msbuildProject": "../DooKamp.Domain/DooKamp.Domain.csproj"
     },
     "DooKamp.Infrastructure/1.0.0": {
       "type": "project",
