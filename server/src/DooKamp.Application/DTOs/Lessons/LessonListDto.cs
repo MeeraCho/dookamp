@@ -6,7 +6,7 @@ public class LessonListDto
 
     public string Title { get; init; } = string.Empty;
 
-    public string Description { get; init; } = string.Empty;
+    public string? Description { get; init; } = string.Empty;
 
-    public string TopicName { get; init; } = string.Empty;
+    public string TopicNames { get; init; } = string.Empty;
 }
