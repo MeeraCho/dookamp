@@ -1,4 +1,6 @@
 // 1. builder 생성 - 앱 시작점, 각종 설정 불러옴
+using DooKamp.Application.Features.Lessons.GetLessons;
+using DooKamp.Application.Interfaces.Lessons;
 using DooKamp.Infrastructure.Persistence;
 using DooKamp.Infrastructure.Persistence.Seed;
 using Microsoft.EntityFrameworkCore;
@@ -21,6 +23,12 @@ using (var scope = app.Services.CreateScope())
 	var dbContext = scope.ServiceProvider.GetRequiredService<DooKampDbContext>();
 	await DbInitializer.InitializeAsync(dbContext);
 }
+
+// Repository 등록
+builder.Services.AddScoped<ILessonRepository, LessonRepository>();
+
+// Handler 등록
+builder.Services.AddScoped<GetLessonsHandler>();
 
 // 5. Middleware 연결
 
