@@ -1,20 +1,24 @@
-// 1. builder 생성 - 앱 시작점, 각종 설정 불러옴
 using DooKamp.Application.Features.Lessons.GetLessons;
 using DooKamp.Application.Interfaces.Lessons;
 using DooKamp.Infrastructure.Persistence;
 using DooKamp.Infrastructure.Persistence.Seed;
 using Microsoft.EntityFrameworkCore;
 
+// 1. builder 생성 - 앱 시작점, 각종 설정 불러옴
 var builder = WebApplication.CreateBuilder(args);
 
-// 2. Services 등록 - builder.Services: 나중에 필요한 객체들 미리 등록하는 장소.아직 객체는 만들어지지 않는다
+// 2. Register Services - builder.Services: 나중에 필요한 객체들 미리 등록하는 장소.아직 객체는 만들어지지 않는다
 builder.Services.AddControllers();
 builder.Services.AddDbContext<DooKampDbContext>(opt => 
 {
 	opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
-// 3. 앱 생성. builder -> app으로 전환 
+// Register Repository and Handler
+builder.Services.AddScoped<ILessonRepository, LessonRepository>();
+builder.Services.AddScoped<GetLessonsHandler>();
+
+// 3. 앱 생성. builder -> app
 var app = builder.Build();
 
 // 4. Database 초기화 
@@ -23,12 +27,6 @@ using (var scope = app.Services.CreateScope())
 	var dbContext = scope.ServiceProvider.GetRequiredService<DooKampDbContext>();
 	await DbInitializer.InitializeAsync(dbContext);
 }
-
-// Repository 등록
-builder.Services.AddScoped<ILessonRepository, LessonRepository>();
-
-// Handler 등록
-builder.Services.AddScoped<GetLessonsHandler>();
 
 // 5. Middleware 연결
 

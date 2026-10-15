@@ -25,8 +25,9 @@ public sealed class LessonRepository : ILessonRepository
                 lesson.LessonLocationGrades.Any(
                     lg => lg.LocationId == locationId && lg.GradeId == gradeId))
             .Include(lesson => lesson.LessonTopics)
-                .ThenInclude(lessonTopic => lessonTopic.Topic)
+            .ThenInclude(lessonTopic => lessonTopic.Topic)
             .OrderBy(lesson => lesson.Title)
             .ToListAsync(cancellationToken);
     }
 }
+
