@@ -16,8 +16,8 @@ public sealed class LessonsController : ControllerBase
     
     [HttpGet]
     public async Task<IActionResult> GetLessons(
-        [FromQuery] int locationId,
-        [FromQuery] int gradeId)
+        [FromQuery] int? locationId,
+        [FromQuery] int? gradeId)
     {
         var query = new GetLessonsQuery(locationId, gradeId);
 

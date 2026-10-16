@@ -17,6 +17,7 @@ public sealed class GetLessonsHandler
         GetLessonsQuery query,
         CancellationToken cancellationToken = default)
     {
+
         var lessons = await _lessonRepository.GetLessonsAsync(
             query.LocationId,
             query.GradeId,
