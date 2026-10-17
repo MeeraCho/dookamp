@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net10.0": {
+      "FluentValidation/12.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -984,7 +997,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
-          "Dookamp.Domain": "1.0.0"
+          "DooKamp.Domain": "1.0.0",
+          "FluentValidation": "12.2.0"
         },
         "compile": {
           "bin/placeholder/DooKamp.Application.dll": {}
@@ -993,19 +1007,34 @@
           "bin/placeholder/DooKamp.Application.dll": {}
         }
       },
-      "Dookamp.Domain/1.0.0": {
+      "DooKamp.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "compile": {
-          "bin/placeholder/Dookamp.Domain.dll": {}
+          "bin/placeholder/DooKamp.Domain.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Dookamp.Domain.dll": {}
+          "bin/placeholder/DooKamp.Domain.dll": {}
         }
       }
     }
   },
   "libraries": {
+    "FluentValidation/12.2.0": {
+      "sha512": "DR3lFbdnKucaaj1/8zMNOACMz/64igzox1yVZSFVsLxYB5mxAB+wFP1WZ8fjwrZnbU1KA1DoMzHKYKxUfuZ4wQ==",
+      "type": "package",
+      "path": "fluentvalidation/12.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.12.2.0.nupkg.sha512",
+        "fluentvalidation.nuspec",
+        "lib/net8.0/FluentValidation.dll",
+        "lib/net8.0/FluentValidation.xml"
+      ]
+    },
     "Humanizer.Core/2.14.1": {
       "sha512": "lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "type": "package",
@@ -2926,16 +2955,16 @@
       "path": "../DooKamp.Application/DooKamp.Application.csproj",
       "msbuildProject": "../DooKamp.Application/DooKamp.Application.csproj"
     },
-    "Dookamp.Domain/1.0.0": {
+    "DooKamp.Domain/1.0.0": {
       "type": "project",
-      "path": "../DooKamp.Domain/Dookamp.Domain.csproj",
-      "msbuildProject": "../DooKamp.Domain/Dookamp.Domain.csproj"
+      "path": "../DooKamp.Domain/DooKamp.Domain.csproj",
+      "msbuildProject": "../DooKamp.Domain/DooKamp.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
       "DooKamp.Application >= 1.0.0",
-      "Dookamp.Domain >= 1.0.0",
+      "DooKamp.Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 10.0.12",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.12",
       "Microsoft.EntityFrameworkCore.Sqlite >= 10.0.12"
@@ -2969,8 +2998,8 @@
             "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/DooKamp.Application.csproj": {
               "projectPath": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/DooKamp.Application.csproj"
             },
-            "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/Dookamp.Domain.csproj": {
-              "projectPath": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/Dookamp.Domain.csproj"
+            "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/DooKamp.Domain.csproj": {
+              "projectPath": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Domain/DooKamp.Domain.csproj"
             }
           }
         }

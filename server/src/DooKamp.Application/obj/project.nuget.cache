@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "BMMlNkrddPw=",
+  "dgSpecHash": "5rxW6DUuSUo=",
   "success": true,
   "projectFilePath": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Application/DooKamp.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/mira/.nuget/packages/fluentvalidation/12.2.0/fluentvalidation.12.2.0.nupkg.sha512"
+  ],
   "logs": []
 }
