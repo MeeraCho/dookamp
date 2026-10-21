@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "WQgixR73WbE=",
+  "dgSpecHash": "zD4htGocLlk=",
   "success": true,
   "projectFilePath": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Infrastructure/DooKamp.Infrastructure.csproj",
   "expectedPackageFiles": [
     "/Users/mira/.nuget/packages/fluentvalidation/12.2.0/fluentvalidation.12.2.0.nupkg.sha512",
+    "/Users/mira/.nuget/packages/fluentvalidation.dependencyinjectionextensions/12.2.0/fluentvalidation.dependencyinjectionextensions.12.2.0.nupkg.sha512",
     "/Users/mira/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/mira/.nuget/packages/microsoft.build.framework/18.0.2/microsoft.build.framework.18.0.2.nupkg.sha512",
     "/Users/mira/.nuget/packages/microsoft.codeanalysis.analyzers/3.11.0/microsoft.codeanalysis.analyzers.3.11.0.nupkg.sha512",

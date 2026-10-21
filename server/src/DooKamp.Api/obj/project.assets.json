@@ -15,6 +15,22 @@
           }
         }
       },
+      "FluentValidation.DependencyInjectionExtensions/12.2.0": {
+        "type": "package",
+        "dependencies": {
+          "FluentValidation": "12.2.0"
+        },
+        "compile": {
+          "lib/net8.0/FluentValidation.DependencyInjectionExtensions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/FluentValidation.DependencyInjectionExtensions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -841,8 +857,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
-          "DooKamp.Domain": "1.0.0",
-          "FluentValidation": "12.2.0"
+          "Dookamp.Domain": "1.0.0",
+          "FluentValidation": "12.2.0",
+          "FluentValidation.DependencyInjectionExtensions": "12.2.0"
         },
         "compile": {
           "bin/placeholder/DooKamp.Application.dll": {}
@@ -851,14 +868,14 @@
           "bin/placeholder/DooKamp.Application.dll": {}
         }
       },
-      "DooKamp.Domain/1.0.0": {
+      "Dookamp.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "compile": {
-          "bin/placeholder/DooKamp.Domain.dll": {}
+          "bin/placeholder/Dookamp.Domain.dll": {}
         },
         "runtime": {
-          "bin/placeholder/DooKamp.Domain.dll": {}
+          "bin/placeholder/Dookamp.Domain.dll": {}
         }
       },
       "DooKamp.Infrastructure/1.0.0": {
@@ -866,7 +883,7 @@
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "DooKamp.Application": "1.0.0",
-          "DooKamp.Domain": "1.0.0",
+          "Dookamp.Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore": "10.0.12",
           "Microsoft.EntityFrameworkCore.Sqlite": "10.0.12"
         },
@@ -893,6 +910,21 @@
         "fluentvalidation.nuspec",
         "lib/net8.0/FluentValidation.dll",
         "lib/net8.0/FluentValidation.xml"
+      ]
+    },
+    "FluentValidation.DependencyInjectionExtensions/12.2.0": {
+      "sha512": "QpKXgiO9E6wXCh19X2Musn8MZM0xt7KQt/QrD6GDBn3MCUfy8a+rkhCzrYJNCfoxTsTRQ7bpKP8T3geTnJNNeQ==",
+      "type": "package",
+      "path": "fluentvalidation.dependencyinjectionextensions/12.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.dependencyinjectionextensions.12.2.0.nupkg.sha512",
+        "fluentvalidation.dependencyinjectionextensions.nuspec",
+        "lib/net8.0/FluentValidation.DependencyInjectionExtensions.dll",
+        "lib/net8.0/FluentValidation.DependencyInjectionExtensions.xml"
       ]
     },
     "Humanizer.Core/2.14.1": {
@@ -2524,10 +2556,10 @@
       "path": "../DooKamp.Application/DooKamp.Application.csproj",
       "msbuildProject": "../DooKamp.Application/DooKamp.Application.csproj"
     },
-    "DooKamp.Domain/1.0.0": {
+    "Dookamp.Domain/1.0.0": {
       "type": "project",
-      "path": "../DooKamp.Domain/DooKamp.Domain.csproj",
-      "msbuildProject": "../DooKamp.Domain/DooKamp.Domain.csproj"
+      "path": "../DooKamp.Domain/Dookamp.Domain.csproj",
+      "msbuildProject": "../DooKamp.Domain/Dookamp.Domain.csproj"
     },
     "DooKamp.Infrastructure/1.0.0": {
       "type": "project",
@@ -2549,11 +2581,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Api/DooKamp.Api.csproj",
+      "projectUniqueName": "/Users/mira/Desktop/coding/dookamp/server/src/Dookamp.Api/DooKamp.Api.csproj",
       "projectName": "DooKamp.Api",
-      "projectPath": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Api/DooKamp.Api.csproj",
+      "projectPath": "/Users/mira/Desktop/coding/dookamp/server/src/Dookamp.Api/DooKamp.Api.csproj",
       "packagesPath": "/Users/mira/.nuget/packages/",
-      "outputPath": "/Users/mira/Desktop/coding/dookamp/server/src/DooKamp.Api/obj/",
+      "outputPath": "/Users/mira/Desktop/coding/dookamp/server/src/Dookamp.Api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/mira/.nuget/NuGet/NuGet.Config"
