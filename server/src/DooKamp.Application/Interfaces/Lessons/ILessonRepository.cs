@@ -8,4 +8,8 @@ public interface ILessonRepository
         int? locationId,
         int? gradeId,
         CancellationToken cancellationToken = default);
+
+    Task<Lesson?> GetLessonByIdAsync(
+        int id,
+        CancellationToken cancellationToken = default);
 }
