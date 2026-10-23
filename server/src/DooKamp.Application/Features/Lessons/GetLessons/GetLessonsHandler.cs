@@ -35,8 +35,7 @@ public sealed class GetLessonsHandler
                         .ToArray(),
                     StringComparer.Ordinal
                 );
-            //throw new ApplicationValidationException(errors);
-            throw new NotFoundException("Lesson not found.");
+            throw new ApplicationValidationException(errors);
             
         }
 

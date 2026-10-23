@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using FluentValidation;
 using DooKamp.Application.Validators;
 using DooKamp.Api.Exceptions;
+using DooKamp.Application.Features.Lessons.GetLesson;
 
 
 // 1. builder 생성 - 앱 시작점, 각종 설정 불러옴
@@ -22,6 +23,7 @@ builder.Services.AddDbContext<DooKampDbContext>(opt =>
 // Register Repository and Handler
 builder.Services.AddScoped<ILessonRepository, LessonRepository>();
 builder.Services.AddScoped<GetLessonsHandler>();
+builder.Services.AddScoped<GetLessonHandler>();
 
 // Register FluentValidation validators
 builder.Services.AddValidatorsFromAssemblyContaining<GetLessonsQueryValidator>();
