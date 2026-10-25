@@ -20,15 +20,15 @@ builder.Services.AddDbContext<DooKampDbContext>(opt =>
 	opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
-// Register Repository and Handler
+// Repository and Handler Registration
 builder.Services.AddScoped<ILessonRepository, LessonRepository>();
 builder.Services.AddScoped<GetLessonsHandler>();
 builder.Services.AddScoped<GetLessonHandler>();
 
-// Register FluentValidation validators
+// FluentValidation validators Registration
 builder.Services.AddValidatorsFromAssemblyContaining<GetLessonsQueryValidator>();
 
-// Register Global Exception Handler
+// Global Exception Handler Registration
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
 

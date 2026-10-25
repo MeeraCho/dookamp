@@ -24,6 +24,5 @@ public sealed class QuizQuestionLanguage : Entity<int>
 
     // Navigation Properties
     public QuizQuestion QuizQuestion { get; private set; } = null!;
-
     public Language Language { get; private set; } = null!;
 }

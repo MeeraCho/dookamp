@@ -25,16 +25,16 @@ public sealed class LessonContent : Entity<int>
     // Navigation Properties
     public Lesson Lesson { get; private set; } = null!;
 
-    public IReadOnlyCollection<LessonContentLanguage> Languages
+    public IReadOnlyCollection<LessonContentLanguage> LessonContentLanguages
         { get; private set; } = new List<LessonContentLanguage>();
 
-    public IReadOnlyCollection<LessonContentVocabulary> Vocabularies
+    public IReadOnlyCollection<LessonContentVocabulary> LessonContentVocabularies
         { get; private set; } = new List<LessonContentVocabulary>();
 
-    public IReadOnlyCollection<LessonContentMedia> MediaItems
+    public IReadOnlyCollection<LessonContentMedia> LessonContentMedias
         { get; private set; } = new List<LessonContentMedia>();
 
-    public IReadOnlyCollection<LessonContentAudio> Audios
+    public IReadOnlyCollection<LessonContentAudio> LessonContentAudios
         { get; private set; } = new List<LessonContentAudio>(); 
 		
     public IReadOnlyCollection<QuizQuestion> QuizQuestions

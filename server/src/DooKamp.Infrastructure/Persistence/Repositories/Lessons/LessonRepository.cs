@@ -42,51 +42,6 @@ public sealed class LessonRepository : ILessonRepository
             .ToListAsync(cancellationToken);
     }
 
-    public async Task<Lesson?> GetLessonByIdAsync(
-        int id,
-        CancellationToken cancellationToken = default)
-    {
-        return await _context.Lessons
-            .AsNoTracking()
-            .Where(lesson => lesson.Status == LessonStatus.Published)
-
-            // Lesson Contents
-            .Include(lesson => lesson.LessonContents)
-                .ThenInclude(content => content.Languages)
-                    .ThenInclude(language => language.Language)
-
-            // Vocabularies
-            .Include(lesson => lesson.LessonContents)
-                .ThenInclude(content => content.Vocabularies)
-                    .ThenInclude(contentVocabulary => contentVocabulary.Vocabulary)
-                        .ThenInclude(vocabulary => vocabulary.Languages)
-                            .ThenInclude(language => language.Language)
-
-            // Concept Check Questions
-            .Include(lesson => lesson.LessonContents)
-                .ThenInclude(content => content.QuizQuestions)
-                    .ThenInclude(question => question.Languages)
-                        .ThenInclude(language => language.Language)
-
-            .Include(lesson => lesson.LessonContents)
-                .ThenInclude(content => content.QuizQuestions)
-                    .ThenInclude(question => question.Options)
-                        .ThenInclude(option => option.Languages)
-                            .ThenInclude(language => language.Language)
-
-            // Lesson-level Quiz Questions
-            .Include(lesson => lesson.QuizQuestions)
-                .ThenInclude(question => question.Languages)
-                    .ThenInclude(language => language.Language)
-
-            .Include(lesson => lesson.QuizQuestions)
-                .ThenInclude(question => question.Options)
-                    .ThenInclude(option => option.Languages)
-                        .ThenInclude(language => language.Language)
-
-            .FirstOrDefaultAsync(
-                lesson => lesson.Id == id,
-                cancellationToken);
-    }  
+    
 }
 

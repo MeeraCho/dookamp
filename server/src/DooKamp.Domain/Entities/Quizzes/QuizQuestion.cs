@@ -33,12 +33,12 @@ public sealed class QuizQuestion : Entity<int>
 
     public QuestionType QuestionType { get; private set; } = null!;
 
-    public IReadOnlyCollection<QuizQuestionLanguage> Languages
+    public IReadOnlyCollection<QuizQuestionLanguage> QuizQuestionLanguages
         { get; private set; } = new List<QuizQuestionLanguage>();
 
-    public IReadOnlyCollection<QuizOption> Options
+    public IReadOnlyCollection<QuizOption> QuizOptions
         { get; private set; } = new List<QuizOption>();
         
-    public IReadOnlyCollection<QuizQuestionAnswer> Answers
+    public IReadOnlyCollection<QuizQuestionAnswer> QuizQuestionAnswers
         { get; private set; } = new List<QuizQuestionAnswer>();    
 }

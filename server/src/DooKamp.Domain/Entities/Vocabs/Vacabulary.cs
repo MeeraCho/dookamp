@@ -16,10 +16,10 @@ public sealed class Vocabulary : Entity<int>
     public IReadOnlyCollection<LessonContentVocabulary> LessonContentVocabularies
         { get; private set; } = new List<LessonContentVocabulary>();
 
-    public IReadOnlyCollection<VocabularyLanguage> Languages
+    public IReadOnlyCollection<VocabularyLanguage> VocabularyLanguages
         { get; private set; } = new List<VocabularyLanguage>();
 
-    public IReadOnlyCollection<VocabularyAudio> Audios
+    public IReadOnlyCollection<VocabularyAudio> VocabularyAudios
         { get; private set; } = new List<VocabularyAudio>();
 
     public IReadOnlyCollection<VocabularyMedia> VocabularyMedias
