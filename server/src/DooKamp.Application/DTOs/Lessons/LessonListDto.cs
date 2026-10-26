@@ -8,5 +8,5 @@ public class LessonListDto
 
     public string? Description { get; init; } = string.Empty;
 
-    public IReadOnlyCollection<string> TopicNames { get; init; } = [];
+    public IReadOnlyList<string> TopicNames { get; init; } = [];
 }

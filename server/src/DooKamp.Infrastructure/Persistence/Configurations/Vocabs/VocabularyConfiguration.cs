@@ -21,12 +21,12 @@ public class VocabularyConfiguration
             .HasForeignKey(x => x.VocabularyId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        builder.HasMany(x => x.Languages)
+        builder.HasMany(x => x.VocabularyLanguages)
             .WithOne(x => x.Vocabulary)
             .HasForeignKey(x => x.VocabularyId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        builder.HasMany(x => x.Audios)
+        builder.HasMany(x => x.VocabularyAudios)
             .WithOne(x => x.Vocabulary)
             .HasForeignKey(x => x.VocabularyId)
             .OnDelete(DeleteBehavior.Cascade);

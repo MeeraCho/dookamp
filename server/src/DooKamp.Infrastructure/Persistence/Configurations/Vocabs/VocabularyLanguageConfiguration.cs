@@ -10,7 +10,7 @@ public class VocabularyLanguageConfiguration
     public void Configure(EntityTypeBuilder<VocabularyLanguage> builder)
     {
         builder.HasOne(x => x.Vocabulary)
-            .WithMany(x => x.Languages)
+            .WithMany(x => x.VocabularyLanguages)
             .HasForeignKey(x => x.VocabularyId)
             .OnDelete(DeleteBehavior.Cascade);
 

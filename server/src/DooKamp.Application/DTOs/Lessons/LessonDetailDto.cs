@@ -10,9 +10,9 @@ public sealed class LessonDetailDto
 
     public string? Description { get; init; }
 
-    public IReadOnlyCollection<LessonContentDto> Contents
+    public IReadOnlyList<LessonContentDto> Contents
         { get; init; } = [];
 
-    public IReadOnlyCollection<QuizQuestionDto> QuizQuestions
+    public IReadOnlyList<QuizQuestionDto> QuizQuestions
         { get; init; } = [];
 }

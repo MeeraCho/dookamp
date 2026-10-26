@@ -10,7 +10,7 @@ public class QuizQuestionLanguageConfiguration
     public void Configure(EntityTypeBuilder<QuizQuestionLanguage> builder)
     {
         builder.HasOne(x => x.QuizQuestion)
-            .WithMany(x => x.Languages)
+            .WithMany(x => x.QuizQuestionLanguages)
             .HasForeignKey(x => x.QuizQuestionId)
             .OnDelete(DeleteBehavior.Cascade);
 

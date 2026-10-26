@@ -10,5 +10,5 @@ public sealed class QuizQuestionDto
 
     public int Order { get; init; }
 
-    public IReadOnlyCollection<QuizOptionDto> Options { get; init; } = [];
+    public IReadOnlyList<QuizOptionDto> QuizOptions { get; init; } = [];
 }

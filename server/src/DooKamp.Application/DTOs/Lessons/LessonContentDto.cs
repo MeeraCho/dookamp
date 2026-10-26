@@ -12,9 +12,9 @@ public sealed class LessonContentDto
 
     public string Text { get; init; } = string.Empty;
 
-    public IReadOnlyCollection<VocabularyDto> Vocabularies
+    public IReadOnlyList<VocabularyDto> Vocabularies
         { get; init; } = [];
 
-    public IReadOnlyCollection<QuizQuestionDto> ConceptCheckQuestions
+    public IReadOnlyList<QuizQuestionDto> ConceptCheckQuestions
         { get; init; } = [];
 }

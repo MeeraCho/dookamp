@@ -10,7 +10,7 @@ public class LessonContentVocabularyConfiguration
     public void Configure(EntityTypeBuilder<LessonContentVocabulary> builder)
     {
         builder.HasOne(x => x.LessonContent)
-            .WithMany(x => x.Vocabularies)
+            .WithMany(x => x.LessonContentVocabularies)
             .HasForeignKey(x => x.LessonContentId)
             .OnDelete(DeleteBehavior.Cascade);
 

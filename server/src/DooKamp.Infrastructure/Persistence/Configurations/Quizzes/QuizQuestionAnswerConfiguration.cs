@@ -14,7 +14,7 @@ public class QuizQuestionAnswerConfiguration
             .HasMaxLength(200);
 
         builder.HasOne(x => x.QuizQuestion)
-            .WithMany(x => x.Answers)
+            .WithMany(x => x.QuizQuestionAnswers)
             .HasForeignKey(x => x.QuizQuestionId)
             .OnDelete(DeleteBehavior.Cascade);
 

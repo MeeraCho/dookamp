@@ -23,6 +23,6 @@ public sealed class QuizOption : Entity<int>
     // Navigation Properties
     public QuizQuestion QuizQuestion { get; private set; } = null!;
 
-    public IReadOnlyCollection<QuizOptionLanguage> quizOptionLanguages
+    public IReadOnlyCollection<QuizOptionLanguage> QuizOptionLanguages
         { get; private set; } = new List<QuizOptionLanguage>();
 }

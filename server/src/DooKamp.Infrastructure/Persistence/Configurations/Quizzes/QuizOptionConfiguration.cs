@@ -10,7 +10,7 @@ public class QuizOptionConfiguration
     public void Configure(EntityTypeBuilder<QuizOption> builder)
     {
         builder.HasOne(x => x.QuizQuestion)
-            .WithMany(x => x.Options)
+            .WithMany(x => x.QuizOptions)
             .HasForeignKey(x => x.QuizQuestionId)
             .OnDelete(DeleteBehavior.Cascade);
 

@@ -44,3 +44,4 @@ public sealed class Lesson : Entity<int>
     public IReadOnlyCollection<LessonTopic> LessonTopics
         { get; private set; } = new List<LessonTopic>();
 }
+

@@ -10,7 +10,7 @@ public class LessonContentMediaConfiguration
     public void Configure(EntityTypeBuilder<LessonContentMedia> builder)
     {
         builder.HasOne(x => x.LessonContent)
-            .WithMany(x => x.MediaItems)
+            .WithMany(x => x.LessonContentMedias)
             .HasForeignKey(x => x.LessonContentId)
             .OnDelete(DeleteBehavior.Cascade);
 
