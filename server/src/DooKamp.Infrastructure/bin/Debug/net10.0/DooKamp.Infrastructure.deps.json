@@ -9,7 +9,7 @@
       "DooKamp.Infrastructure/1.0.0": {
         "dependencies": {
           "DooKamp.Application": "1.0.0",
-          "Dookamp.Domain": "1.0.0",
+          "DooKamp.Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore": "10.0.12",
           "Microsoft.EntityFrameworkCore.Design": "10.0.12",
           "Microsoft.EntityFrameworkCore.Sqlite": "10.0.12"
@@ -777,7 +777,7 @@
       },
       "DooKamp.Application/1.0.0": {
         "dependencies": {
-          "Dookamp.Domain": "1.0.0",
+          "DooKamp.Domain": "1.0.0",
           "FluentValidation": "12.2.0",
           "FluentValidation.DependencyInjectionExtensions": "12.2.0"
         },
@@ -788,9 +788,9 @@
           }
         }
       },
-      "Dookamp.Domain/1.0.0": {
+      "DooKamp.Domain/1.0.0": {
         "runtime": {
-          "Dookamp.Domain.dll": {
+          "DooKamp.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -1089,7 +1089,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Dookamp.Domain/1.0.0": {
+    "DooKamp.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

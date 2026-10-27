@@ -5,4 +5,7 @@
     <Project Path="src/DooKamp.Domain/DooKamp.Domain.csproj" />
     <Project Path="src/DooKamp.Infrastructure/DooKamp.Infrastructure.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/DooKamp.Application.Tests/DooKamp.Application.Tests.csproj" />
+  </Folder>
 </Solution>
