@@ -8,7 +8,7 @@ public sealed class QuizQuestionDto
 
     public string LanguageCode { get; init; } = string.Empty;
 
-    public int Order { get; init; }
+    public int? Order { get; init; }
 
     public IReadOnlyList<QuizOptionDto> QuizOptions { get; init; } = [];
 }
