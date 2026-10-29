@@ -1,12 +1,10 @@
 # DooKamp MVP Scope
 
-## 1. Purpose
+## 1. MVP Purpose
 
-The purpose of the Minimum Viable Product (MVP) is to deliver a usable learning experience that helps students and families understand foundational concepts taught in Alberta elementary schools.
+The purpose of the Minimum Viable Product (MVP) is to deliver a usable learning experience that helps students and families understand foundational concepts students learn in Alberta elementary schools.
 
 The MVP will focus on Alberta Grade 5 Science, with learning content available in English and Korean.
-
-The initial release will validate the core learning experience before expanding to additional grades, subjects, locations, and languages.
 
 ## 2. Target Users
 
