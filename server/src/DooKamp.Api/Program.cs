@@ -55,3 +55,5 @@ app.MapControllers();
 
 // 7. 서버 실행 - ASP.NET Core 기본 서버는 Kestrel 실행 
 app.Run();
+
+public partial class Program { }
