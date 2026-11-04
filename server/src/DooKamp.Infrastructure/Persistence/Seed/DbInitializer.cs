@@ -21,9 +21,9 @@ public static class DbInitializer
         //Lesson
         await LessonSeed.SeedAsync(context);
         await LessonTopicSeed.SeedAsync(context);
-        await LessonLocationGradeSeed.SeedAsync(context);
         await LessonContentSeed.SeedAsync(context);
         await LessonContentLanguageSeed.SeedAsync(context);
+        await TopicLocationGradeSeed.SeedAsync(context);
 
         //Vocabulary
         await VocabularySeed.SeedAsync(context);

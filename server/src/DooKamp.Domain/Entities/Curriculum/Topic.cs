@@ -26,14 +26,16 @@ public sealed class Topic : Entity<int>
 
     public string? Description { get; private set; }
 
-    // Subject relationship
-    public Subject Subject { get; private set; } = null!;
-
     // Self-referencing relationship
     public Topic? ParentTopic { get; private set; }
 
     public IReadOnlyCollection<Topic> ChildTopics { get; private set; } = new List<Topic>();
 
-    // Lessons associated with this topic
+    // Navigation Properties
+    public Subject Subject { get; private set; } = null!;
+
     public IReadOnlyCollection<LessonTopic> LessonTopics { get; private set; } = new List<LessonTopic>();
+
+    public IReadOnlyCollection<TopicLocationGrade> TopicLocationGrades { get; private set; } = new List<TopicLocationGrade>();
+
 }

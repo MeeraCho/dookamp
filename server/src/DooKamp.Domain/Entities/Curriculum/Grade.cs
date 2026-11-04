@@ -12,6 +12,7 @@ public sealed class Grade : Entity<int>
 
     public string Name { get; private set; } = string.Empty;
     
-    public IReadOnlyCollection<LessonLocationGrade> LessonLocationGrades 
-		{ get; private set; } = new List<LessonLocationGrade>();    
+    // Navigation Properties
+    public IReadOnlyCollection<TopicLocationGrade> TopicLocationGrades 
+		{ get; private set; } = new List<TopicLocationGrade>();    
 }

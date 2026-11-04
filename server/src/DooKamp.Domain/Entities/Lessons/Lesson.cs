@@ -32,9 +32,6 @@ public sealed class Lesson : Entity<int>
     public DateTime? PublishedAt { get; private set; }
     
     // Navigation Properties     
-    public IReadOnlyCollection<LessonLocationGrade> LessonLocationGrades
-		{ get; private set; } = new List<LessonLocationGrade>();
-
     public IReadOnlyCollection<LessonContent> LessonContents
         { get; private set; } = new List<LessonContent>();
 		

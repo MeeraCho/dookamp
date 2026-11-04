@@ -41,8 +41,7 @@ public sealed class GetLessonsHandler
 
          // Retrieve lessons from the database
         var lessons = await _lessonRepository.GetLessonsAsync(
-            query.LocationId,
-            query.GradeId,
+
             cancellationToken);
 
         // DTO Mapping

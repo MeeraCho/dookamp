@@ -27,6 +27,7 @@ public class DooKampDbContext : DbContext
     public DbSet<Location> Locations => Set<Location>();
     public DbSet<Subject> Subjects => Set<Subject>();
     public DbSet<Topic> Topics => Set<Topic>();
+public DbSet<TopicLocationGrade> TopicLocationGrades => Set<TopicLocationGrade>();    
     
     // Languages
     public DbSet<Language> Languages => Set<Language>();
@@ -35,7 +36,6 @@ public class DooKampDbContext : DbContext
     public DbSet<Lesson> Lessons => Set<Lesson>();
     public DbSet<LessonContent> LessonContents => Set<LessonContent>();
     public DbSet<LessonContentLanguage> LessonContentLanguages => Set<LessonContentLanguage>();
-    public DbSet<LessonLocationGrade> LessonLocationGrades => Set<LessonLocationGrade>();
     public DbSet<LessonTopic> LessonTopics => Set<LessonTopic>();
     
     // Media

@@ -1,4 +1,3 @@
-using DooKamp.Domain.Entities.Lessons;
 namespace DooKamp.Domain.Entities.Curriculum;
 
 public sealed class Location : Entity<int>
@@ -21,6 +20,7 @@ public sealed class Location : Entity<int>
 
     public string Country { get; private set; } = string.Empty;
 
-    public IReadOnlyCollection<LessonLocationGrade> LessonLocationGrades 
-		{ get; private set; } = new List<LessonLocationGrade>();
+    // Navigation Properties
+    public IReadOnlyCollection<TopicLocationGrade> TopicLocationGrades 
+		{ get; private set; } = new List<TopicLocationGrade>();
 }

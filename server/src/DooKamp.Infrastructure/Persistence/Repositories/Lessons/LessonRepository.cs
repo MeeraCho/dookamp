@@ -14,26 +14,12 @@ public sealed class LessonRepository : ILessonRepository
     }
 
     public async Task<IReadOnlyList<Lesson>> GetLessonsAsync(
-        int? locationId,
-        int? gradeId,
         CancellationToken cancellationToken = default)
     {
         var query = _context.Lessons
             .Include(lesson => lesson.LessonTopics)
                 .ThenInclude(lessonTopic => lessonTopic.Topic)
             .AsQueryable();
-
-        if (locationId.HasValue)
-        {
-            query = query.Where(lesson => 
-                lesson.LessonLocationGrades.Any(lg => lg.LocationId == locationId.Value));
-        }
-
-        if (gradeId.HasValue)
-        {
-            query = query.Where(lesson => 
-                lesson.LessonLocationGrades.Any(lg => lg.GradeId == gradeId.Value));
-        }
 
         return await query
             .Include(lesson => lesson.LessonTopics)
