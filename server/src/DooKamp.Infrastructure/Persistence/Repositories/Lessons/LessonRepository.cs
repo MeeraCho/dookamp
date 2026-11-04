@@ -17,13 +17,13 @@ public sealed class LessonRepository : ILessonRepository
         CancellationToken cancellationToken = default)
     {
         var query = _context.Lessons
-            .Include(lesson => lesson.LessonTopics)
-                .ThenInclude(lessonTopic => lessonTopic.Topic)
+            .Include(lesson => lesson.TopicLessons)
+                .ThenInclude(topicLesson => topicLesson.Topic)
             .AsQueryable();
 
         return await query
-            .Include(lesson => lesson.LessonTopics)
-                .ThenInclude(lessonTopic => lessonTopic.Topic)
+            .Include(lesson => lesson.TopicLessons)
+                .ThenInclude(topicLesson => topicLesson.Topic)
             .OrderBy(lesson => lesson.Title)
             .ToListAsync(cancellationToken);
     }

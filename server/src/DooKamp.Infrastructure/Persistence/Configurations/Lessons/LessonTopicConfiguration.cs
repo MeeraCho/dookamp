@@ -1,12 +1,13 @@
 using DooKamp.Domain.Entities.Lessons;
+using DooKamp.Domain.Entities.Topics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DooKamp.Infrastructure.Data.Configurations.Lessons;
 
-public class LessonTopicConfiguration : IEntityTypeConfiguration<LessonTopic>
+public class LessonTopicConfiguration : IEntityTypeConfiguration<TopicLesson>
 {
-    public void Configure(EntityTypeBuilder<LessonTopic> builder)
+    public void Configure(EntityTypeBuilder<TopicLesson> builder)
     {
         builder.HasKey(x => new
         {
@@ -14,14 +15,14 @@ public class LessonTopicConfiguration : IEntityTypeConfiguration<LessonTopic>
             x.TopicId
         });
 
-        builder.HasOne(x => x.Lesson)
-            .WithMany(x => x.LessonTopics)
-            .HasForeignKey(x => x.LessonId)
-            .OnDelete(DeleteBehavior.Cascade);
-
         builder.HasOne(x => x.Topic)
-            .WithMany(x => x.LessonTopics)
+            .WithMany(x => x.TopicLessons)
             .HasForeignKey(x => x.TopicId)
+            .OnDelete(DeleteBehavior.Cascade);        
+
+        builder.HasOne(x => x.Lesson)
+            .WithMany(x => x.TopicLessons)
+            .HasForeignKey(x => x.LessonId)
             .OnDelete(DeleteBehavior.Cascade);
     }
 }

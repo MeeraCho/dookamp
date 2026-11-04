@@ -1,6 +1,7 @@
 using DooKamp.Domain.Entities.Quizzes;
 using DooKamp.Domain.Entities.Curriculum;
 using DooKamp.Domain.Enums;
+using DooKamp.Domain.Entities.Topics;
 
 namespace DooKamp.Domain.Entities.Lessons;
 
@@ -38,7 +39,7 @@ public sealed class Lesson : Entity<int>
     public IReadOnlyCollection<QuizQuestion> QuizQuestions
         { get; private set; } = new List<QuizQuestion>();  
     
-    public IReadOnlyCollection<LessonTopic> LessonTopics
-        { get; private set; } = new List<LessonTopic>();
+    public IReadOnlyCollection<TopicLesson> TopicLessons
+        { get; private set; } = new List<TopicLesson>();
 }
 

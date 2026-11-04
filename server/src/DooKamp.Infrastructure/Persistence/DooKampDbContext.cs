@@ -4,6 +4,7 @@ using DooKamp.Domain.Entities.Languages;
 using DooKamp.Domain.Entities.Lessons;
 using DooKamp.Domain.Entities.Media;
 using DooKamp.Domain.Entities.Quizzes;
+using DooKamp.Domain.Entities.Topics;
 using DooKamp.Domain.Entities.Vocabs;
 using Microsoft.EntityFrameworkCore;
 
@@ -36,7 +37,7 @@ public DbSet<TopicLocationGrade> TopicLocationGrades => Set<TopicLocationGrade>(
     public DbSet<Lesson> Lessons => Set<Lesson>();
     public DbSet<LessonContent> LessonContents => Set<LessonContent>();
     public DbSet<LessonContentLanguage> LessonContentLanguages => Set<LessonContentLanguage>();
-    public DbSet<LessonTopic> LessonTopics => Set<LessonTopic>();
+    public DbSet<TopicLesson> TopicLessons => Set<TopicLesson>();
     
     // Media
     public DbSet<LessonContentMedia> LessonContentMedias => Set<LessonContentMedia>();

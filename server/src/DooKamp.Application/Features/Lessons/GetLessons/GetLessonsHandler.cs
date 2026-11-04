@@ -51,7 +51,7 @@ public sealed class GetLessonsHandler
                 Id = lesson.Id,
                 Title = lesson.Title,
                 Description = lesson.Description,
-                TopicNames = lesson.LessonTopics
+                TopicNames = lesson.TopicLessons
                     .Select(lessonTopic => lessonTopic.Topic.Name)
                     .ToArray()
             })

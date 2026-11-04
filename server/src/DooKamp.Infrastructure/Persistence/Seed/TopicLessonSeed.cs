@@ -1,13 +1,13 @@
-using DooKamp.Domain.Entities.Lessons;
+using DooKamp.Domain.Entities.Topics;
 using Microsoft.EntityFrameworkCore;
 
 namespace DooKamp.Infrastructure.Persistence.Seed;
 
-public static class LessonTopicSeed
+public static class TopicLessonSeed
 {
     public static async Task SeedAsync(DooKampDbContext context)
     {
-        if (await context.LessonTopics.AnyAsync())
+        if (await context.TopicLessons.AnyAsync())
             return;
 
         // Topics
@@ -60,37 +60,37 @@ public static class LessonTopicSeed
         var plantReproductionLesson = await context.Lessons.SingleAsync(x => x.Title == "Plant Reproduction");
         var plantLifeCyclesLesson = await context.Lessons.SingleAsync(x => x.Title == "Plant Life Cycles");
 
-        context.LessonTopics.AddRange(
-            new LessonTopic(cellStructure1.Id, cellStructure.Id),
-            new LessonTopic(cellStructure2.Id, cellStructure.Id),
-            new LessonTopic(cellStructure3.Id, cellStructure.Id),
+        context.TopicLessons.AddRange(
+            new TopicLesson(cellStructure1.Id, cellStructure.Id),
+            new TopicLesson(cellStructure2.Id, cellStructure.Id),
+            new TopicLesson(cellStructure3.Id, cellStructure.Id),
 
-            new LessonTopic(cellMembrane1.Id, cellMembrane.Id),
-            new LessonTopic(cellMembrane2.Id, cellMembrane.Id),
-            new LessonTopic(cellMembrane3.Id, cellMembrane.Id),
+            new TopicLesson(cellMembrane1.Id, cellMembrane.Id),
+            new TopicLesson(cellMembrane2.Id, cellMembrane.Id),
+            new TopicLesson(cellMembrane3.Id, cellMembrane.Id),
 
-            new LessonTopic(nucleus1.Id, nucleus.Id),
-            new LessonTopic(nucleus2.Id, nucleus.Id),
-            new LessonTopic(nucleus3.Id, nucleus.Id),
+            new TopicLesson(nucleus1.Id, nucleus.Id),
+            new TopicLesson(nucleus2.Id, nucleus.Id),
+            new TopicLesson(nucleus3.Id, nucleus.Id),
 
-            new LessonTopic(plantAndAnimalCells1.Id, plantAndAnimalCells.Id),
-            new LessonTopic(plantAndAnimalCells2.Id, plantAndAnimalCells.Id),
-            new LessonTopic(plantAndAnimalCells3.Id, plantAndAnimalCells.Id),
+            new TopicLesson(plantAndAnimalCells1.Id, plantAndAnimalCells.Id),
+            new TopicLesson(plantAndAnimalCells2.Id, plantAndAnimalCells.Id),
+            new TopicLesson(plantAndAnimalCells3.Id, plantAndAnimalCells.Id),
 
-            new LessonTopic(organsLesson.Id, organs.Id),
-            new LessonTopic(tissuesLesson.Id, tissues.Id),
-            new LessonTopic(bodyOrganizationLesson.Id, bodyOrganization.Id),
+            new TopicLesson(organsLesson.Id, organs.Id),
+            new TopicLesson(tissuesLesson.Id, tissues.Id),
+            new TopicLesson(bodyOrganizationLesson.Id, bodyOrganization.Id),
 
-            new LessonTopic(digestiveSystemLesson.Id, digestiveSystem.Id),
-            new LessonTopic(respiratorySystemLesson.Id, respiratorySystem.Id),
-            new LessonTopic(circulatorySystemLesson.Id, circulatorySystem.Id),
-            new LessonTopic(nervousSystemLesson.Id, nervousSystem.Id),
-            new LessonTopic(skeletalSystemLesson.Id, skeletalSystem.Id),
+            new TopicLesson(digestiveSystemLesson.Id, digestiveSystem.Id),
+            new TopicLesson(respiratorySystemLesson.Id, respiratorySystem.Id),
+            new TopicLesson(circulatorySystemLesson.Id, circulatorySystem.Id),
+            new TopicLesson(nervousSystemLesson.Id, nervousSystem.Id),
+            new TopicLesson(skeletalSystemLesson.Id, skeletalSystem.Id),
 
-            new LessonTopic(plantStructureLesson.Id, plantStructure.Id),
-            new LessonTopic(photosynthesisLesson.Id, photosynthesis.Id),
-            new LessonTopic(plantReproductionLesson.Id, plantReproduction.Id),
-            new LessonTopic(plantLifeCyclesLesson.Id, plantLifeCycles.Id));
+            new TopicLesson(plantStructureLesson.Id, plantStructure.Id),
+            new TopicLesson(photosynthesisLesson.Id, photosynthesis.Id),
+            new TopicLesson(plantReproductionLesson.Id, plantReproduction.Id),
+            new TopicLesson(plantLifeCyclesLesson.Id, plantLifeCycles.Id));
 
         await context.SaveChangesAsync();
     }

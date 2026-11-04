@@ -1,4 +1,5 @@
 using DooKamp.Domain.Entities.Lessons;
+using DooKamp.Domain.Entities.Topics;
 
 namespace DooKamp.Domain.Entities.Curriculum;
 
@@ -34,7 +35,7 @@ public sealed class Topic : Entity<int>
     // Navigation Properties
     public Subject Subject { get; private set; } = null!;
 
-    public IReadOnlyCollection<LessonTopic> LessonTopics { get; private set; } = new List<LessonTopic>();
+    public IReadOnlyCollection<TopicLesson> TopicLessons { get; private set; } = new List<TopicLesson>();
 
     public IReadOnlyCollection<TopicLocationGrade> TopicLocationGrades { get; private set; } = new List<TopicLocationGrade>();
 
