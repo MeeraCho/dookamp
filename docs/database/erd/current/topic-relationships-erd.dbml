@@ -1,0 +1,385 @@
+// ========================================
+// DOOKAMP DATABASE SCHEMA
+// See original ERD https://dbdiagram.io/d/6aea3059027db74914e1387e
+// ========================================
+
+
+// ========================================
+// 1. CURRICULUM
+// ========================================
+// Defines the educational structure and curriculum alignment.
+// Subjects organize Topics, while Locations and Grades
+// determine where and at which grade level Topics are taught.
+
+Table Subjects {
+  Id int [pk, increment]
+  Name varchar [not null]
+}
+
+Table Topics {
+  Id int [pk, increment]
+  Name varchar [not null]
+  ParentTopicId int
+  SubjectId int [not null]
+  Description text
+}
+
+Table Locations {
+  Id int [pk, increment]
+  Name varchar [not null]
+  Code varchar [not null]
+  Country varchar [not null]
+}
+
+Table Grades {
+  Id int [pk, increment]
+  Name varchar [not null]
+}
+
+Table TopicLocationGrades {
+  Id int [pk, increment]
+  TopicId int [not null]
+  LocationId int [not null]
+  GradeId int [not null]
+}
+
+
+// ========================================
+// 2. LESSON
+// ========================================
+// Stores lessons and their learning content.
+// LessonContents define the ordered learning sections
+// within each Lesson.
+// Language-specific text and audio are stored separately.
+
+Table Lessons {
+  Id int [pk, increment]
+  Title varchar [not null]
+  Description text
+  CreatedAt datetime [not null]
+  UpdatedAt datetime [not null]
+  Status int [not null]
+  PublishedAt datetime
+}
+
+Table LessonTopics {
+  Id int [pk, increment]
+  TopicId int [not null]
+  LessonId int [not null]
+}
+
+Table LessonContents {
+  Id int [pk, increment]
+  LessonId int [not null]
+  Order int [not null]
+}
+
+Table LessonContentLanguages {
+  Id int [pk, increment]
+  LessonContentId int [not null]
+  LanguageId int [not null]
+  Text text [not null]
+}
+
+Table LessonContentAudios {
+  Id int [pk, increment]
+  LessonContentId int [not null]
+  LanguageId int [not null]
+  AudioUrl varchar
+}
+
+Table LessonContentVocabularies {
+  Id int [pk, increment]
+  LessonContentId int [not null]
+  VocabularyId int [not null]
+}
+
+
+// ========================================
+// 3. VOCABULARY
+// ========================================
+// Stores vocabulary terms and their language-specific
+// words, definitions, and audio resources.
+
+Table Vocabularies {
+  Id int [pk, increment]
+  Code varchar [not null]
+}
+
+Table VocabularyLanguages {
+  Id int [pk, increment]
+  VocabularyId int [not null]
+  LanguageId int [not null]
+  Word varchar [not null]
+  Definition text [not null]
+}
+
+Table VocabularyAudios {
+  Id int [pk, increment]
+  LanguageId int [not null]
+  VocabularyId int [not null]
+  AudioUrl varchar
+}
+
+Table VocabularyMedias {
+  Id int [pk, increment]
+  VocabularyId int [not null]
+  MediaId int [not null]
+}
+
+
+// ========================================
+// 4. MEDIA
+// ========================================
+// Stores reusable media assets such as images and videos.
+// Media assets can be associated with LessonContents
+// and Vocabularies.
+
+Table Medias {
+  Id int [pk, increment]
+  MediaType int [not null]
+  Url varchar [not null]
+}
+
+Table LessonContentMedias {
+  Id int [pk, increment]
+  LessonContentId int [not null]
+  MediaId int [not null]
+}
+
+
+// ========================================
+// 5. QUIZ
+// ========================================
+// Stores quiz questions, answer options, and answers.
+// Questions can be associated with an entire Lesson
+// or with a specific LessonContent.
+// Question text, options, and answers support multiple Languages.
+
+Table QuestionTypes {
+  Id int [pk, increment]
+  Name varchar [not null]
+}
+
+Table QuizQuestions {
+  Id int [pk, increment]
+  LessonId int
+  LessonContentId int
+  QuestionTypeId int [not null]
+  Order int
+}
+
+Table QuizQuestionLanguages {
+  Id int [pk, increment]
+  QuizQuestionId int [not null]
+  LanguageId int [not null]
+  QuestionText text [not null]
+}
+
+Table QuizOptions {
+  Id int [pk, increment]
+  QuizQuestionId int [not null]
+  IsCorrect boolean [not null]
+  Order int [not null]
+}
+
+Table QuizOptionLanguages {
+  Id int [pk, increment]
+  QuizOptionId int [not null]
+  LanguageId int [not null]
+  Text text [not null]
+}
+
+Table QuizQuestionAnswers {
+  Id int [pk, increment]
+  QuizQuestionId int [not null]
+  LanguageId int [not null]
+  Answer text [not null]
+}
+
+
+// ========================================
+// 6. SHARED
+// ========================================
+// Stores shared reference data used across the system.
+
+Table Languages {
+  Id int [pk, increment]
+  Code varchar [not null]
+  Name varchar [not null]
+}
+
+// ========================================
+// RELATIONSHIPS
+// ========================================
+
+
+// 1. SUBJECTS AND TOPICS
+// ----------------------------------------
+// A Subject can have multiple Topics.
+// Each Topic belongs to exactly one Subject.
+// Topics support hierarchical organization through ParentTopicId.
+// ParentTopicId is nullable for top-level Topics.
+
+Ref: Topics.SubjectId > Subjects.Id
+Ref: Topics.ParentTopicId >? Topics.Id
+
+
+// 2. TOPIC CURRICULUM ALIGNMENT
+// ----------------------------------------
+// Associates Topics with specific Locations and Grades.
+// A Topic can be aligned with multiple Location/Grade combinations.
+// Each record represents one Topic, Location, and Grade combination.
+
+Ref: TopicLocationGrades.TopicId > Topics.Id
+Ref: TopicLocationGrades.LocationId > Locations.Id
+Ref: TopicLocationGrades.GradeId > Grades.Id
+
+
+// 3. TOPICS AND LESSONS
+// ----------------------------------------
+// Many-to-many relationship.
+// A Topic can contain multiple Lessons.
+// A Lesson can belong to multiple Topics.
+// LessonTopics serves as the junction table.
+
+Ref: LessonTopics.TopicId > Topics.Id
+Ref: LessonTopics.LessonId > Lessons.Id
+
+
+// 4. LESSONS AND LESSON CONTENTS
+// ----------------------------------------
+// One Lesson can contain multiple LessonContents.
+// Each LessonContent belongs to exactly one Lesson.
+// Order determines the sequence of content within a Lesson.
+
+Ref: LessonContents.LessonId > Lessons.Id
+
+
+// 5. LESSON CONTENT LANGUAGES
+// ----------------------------------------
+// Each LessonContent can have content in multiple Languages.
+// Each record stores the text for one Language.
+
+Ref: LessonContentLanguages.LessonContentId > LessonContents.Id
+Ref: LessonContentLanguages.LanguageId > Languages.Id
+
+
+// 6. LESSON CONTENT AUDIOS
+// ----------------------------------------
+// Each LessonContent can have audio in multiple Languages.
+// Each audio record belongs to one LessonContent and one Language.
+
+Ref: LessonContentAudios.LessonContentId > LessonContents.Id
+Ref: LessonContentAudios.LanguageId > Languages.Id
+
+
+// 7. LESSON CONTENT MEDIA
+// ----------------------------------------
+// Many-to-many relationship.
+// A LessonContent can have multiple Media assets.
+// A Media asset can be reused across multiple LessonContents.
+// LessonContentMedias serves as the junction table.
+
+Ref: LessonContentMedias.LessonContentId > LessonContents.Id
+Ref: LessonContentMedias.MediaId > Medias.Id
+
+
+// 8. VOCABULARY MEDIA
+// ----------------------------------------
+// Many-to-many relationship.
+// A Vocabulary can have multiple Media assets.
+// A Media asset can be reused across multiple Vocabularies.
+// VocabularyMedias serves as the junction table.
+
+Ref: VocabularyMedias.VocabularyId > Vocabularies.Id
+Ref: VocabularyMedias.MediaId > Medias.Id
+
+
+// 9. VOCABULARY LANGUAGES
+// ----------------------------------------
+// Each Vocabulary can have translations in multiple Languages.
+// Each record stores a word and its definition in one Language.
+
+Ref: VocabularyLanguages.VocabularyId > Vocabularies.Id
+Ref: VocabularyLanguages.LanguageId > Languages.Id
+
+
+// 10. VOCABULARY AUDIOS
+// ----------------------------------------
+// Each Vocabulary can have audio in multiple Languages.
+// Each audio record belongs to one Vocabulary and one Language.
+
+Ref: VocabularyAudios.VocabularyId > Vocabularies.Id
+Ref: VocabularyAudios.LanguageId > Languages.Id
+
+
+// 11. LESSON CONTENT AND VOCABULARIES
+// ----------------------------------------
+// Many-to-many relationship.
+// A LessonContent can introduce multiple Vocabularies.
+// A Vocabulary can be reused across multiple LessonContents.
+// LessonContentVocabularies serves as the junction table.
+
+Ref: LessonContentVocabularies.LessonContentId > LessonContents.Id
+Ref: LessonContentVocabularies.VocabularyId > Vocabularies.Id
+
+
+// 12. QUIZ QUESTIONS AND LESSONS
+// ----------------------------------------
+// A QuizQuestion can be associated with either:
+// - A Lesson (LessonId)
+// - A specific LessonContent (LessonContentId)
+//
+// Both foreign keys are nullable.
+// The intended design is for a question to belong to one of these
+// two levels, rather than both.
+
+Ref: QuizQuestions.LessonId >? Lessons.Id
+Ref: QuizQuestions.LessonContentId >? LessonContents.Id
+
+
+// 13. QUIZ QUESTION TYPES
+// ----------------------------------------
+// Each QuizQuestion has exactly one QuestionType.
+// A QuestionType can be used by multiple QuizQuestions.
+
+Ref: QuizQuestions.QuestionTypeId > QuestionTypes.Id
+
+
+// 14. QUIZ QUESTIONS AND OPTIONS
+// ----------------------------------------
+// One QuizQuestion can have multiple QuizOptions.
+// Each QuizOption belongs to exactly one QuizQuestion.
+// IsCorrect indicates whether an option is the correct choice.
+// Order determines the display sequence of options.
+
+Ref: QuizOptions.QuizQuestionId > QuizQuestions.Id
+
+
+// 15. QUIZ OPTION LANGUAGES
+// ----------------------------------------
+// Each QuizOption can have text in multiple Languages.
+// Each record stores the option text in one Language.
+
+Ref: QuizOptionLanguages.QuizOptionId > QuizOptions.Id
+Ref: QuizOptionLanguages.LanguageId > Languages.Id
+
+
+// 16. QUIZ QUESTION LANGUAGES
+// ----------------------------------------
+// Each QuizQuestion can have question text in multiple Languages.
+// Each record stores the question text in one Language.
+
+Ref: QuizQuestionLanguages.QuizQuestionId > QuizQuestions.Id
+Ref: QuizQuestionLanguages.LanguageId > Languages.Id
+
+
+// 17. QUIZ QUESTION ANSWERS
+// ----------------------------------------
+// Each QuizQuestion can have answers in multiple Languages.
+// Each record stores an answer in one Language.
+
+Ref: QuizQuestionAnswers.QuizQuestionId > QuizQuestions.Id
+Ref: QuizQuestionAnswers.LanguageId > Languages.Id
+
