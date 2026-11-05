@@ -158,6 +158,33 @@ namespace DooKamp.Infrastructure.Persistence.Migrations
                     b.ToTable("Topics");
                 });
 
+            modelBuilder.Entity("DooKamp.Domain.Entities.Curriculum.TopicLocationGrade", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("GradeId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("LocationId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("TopicId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GradeId");
+
+                    b.HasIndex("LocationId");
+
+                    b.HasIndex("TopicId", "LocationId", "GradeId")
+                        .IsUnique();
+
+                    b.ToTable("TopicLocationGrades");
+                });
+
             modelBuilder.Entity("DooKamp.Domain.Entities.Languages.Language", b =>
                 {
                     b.Property<int>("Id")
@@ -256,51 +283,6 @@ namespace DooKamp.Infrastructure.Persistence.Migrations
                         .IsUnique();
 
                     b.ToTable("LessonContentLanguages");
-                });
-
-            modelBuilder.Entity("DooKamp.Domain.Entities.Lessons.LessonLocationGrade", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("GradeId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("LessonId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("LocationId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GradeId");
-
-                    b.HasIndex("LocationId");
-
-                    b.HasIndex("LessonId", "LocationId", "GradeId")
-                        .IsUnique();
-
-                    b.ToTable("LessonLocationGrades");
-                });
-
-            modelBuilder.Entity("DooKamp.Domain.Entities.Lessons.LessonTopic", b =>
-                {
-                    b.Property<int>("LessonId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("TopicId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("LessonId", "TopicId");
-
-                    b.HasIndex("TopicId");
-
-                    b.ToTable("LessonTopics");
                 });
 
             modelBuilder.Entity("DooKamp.Domain.Entities.Media.LessonContentMedia", b =>
@@ -487,6 +469,24 @@ namespace DooKamp.Infrastructure.Persistence.Migrations
                     b.ToTable("QuizQuestionLanguages");
                 });
 
+            modelBuilder.Entity("DooKamp.Domain.Entities.Topics.TopicLesson", b =>
+                {
+                    b.Property<int>("LessonId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("TopicId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("LessonId", "TopicId");
+
+                    b.HasIndex("TopicId");
+
+                    b.ToTable("TopicLessons");
+                });
+
             modelBuilder.Entity("DooKamp.Domain.Entities.Vocabs.LessonContentVocabulary", b =>
                 {
                     b.Property<int>("Id")
@@ -594,7 +594,7 @@ namespace DooKamp.Infrastructure.Persistence.Migrations
                         .IsRequired();
 
                     b.HasOne("DooKamp.Domain.Entities.Lessons.LessonContent", "LessonContent")
-                        .WithMany("Audios")
+                        .WithMany("LessonContentAudios")
                         .HasForeignKey("LessonContentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -613,7 +613,7 @@ namespace DooKamp.Infrastructure.Persistence.Migrations
                         .IsRequired();
 
                     b.HasOne("DooKamp.Domain.Entities.Vocabs.Vocabulary", "Vocabulary")
-                        .WithMany("Audios")
+                        .WithMany("VocabularyAudios")
                         .HasForeignKey("VocabularyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -641,6 +641,33 @@ namespace DooKamp.Infrastructure.Persistence.Migrations
                     b.Navigation("Subject");
                 });
 
+            modelBuilder.Entity("DooKamp.Domain.Entities.Curriculum.TopicLocationGrade", b =>
+                {
+                    b.HasOne("DooKamp.Domain.Entities.Curriculum.Grade", "Grade")
+                        .WithMany("TopicLocationGrades")
+                        .HasForeignKey("GradeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("DooKamp.Domain.Entities.Curriculum.Location", "Location")
+                        .WithMany("TopicLocationGrades")
+                        .HasForeignKey("LocationId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("DooKamp.Domain.Entities.Curriculum.Topic", "Topic")
+                        .WithMany("TopicLocationGrades")
+                        .HasForeignKey("TopicId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Grade");
+
+                    b.Navigation("Location");
+
+                    b.Navigation("Topic");
+                });
+
             modelBuilder.Entity("DooKamp.Domain.Entities.Lessons.LessonContent", b =>
                 {
                     b.HasOne("DooKamp.Domain.Entities.Lessons.Lesson", "Lesson")
@@ -661,7 +688,7 @@ namespace DooKamp.Infrastructure.Persistence.Migrations
                         .IsRequired();
 
                     b.HasOne("DooKamp.Domain.Entities.Lessons.LessonContent", "LessonContent")
-                        .WithMany("Languages")
+                        .WithMany("LessonContentLanguages")
                         .HasForeignKey("LessonContentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -671,56 +698,10 @@ namespace DooKamp.Infrastructure.Persistence.Migrations
                     b.Navigation("LessonContent");
                 });
 
-            modelBuilder.Entity("DooKamp.Domain.Entities.Lessons.LessonLocationGrade", b =>
-                {
-                    b.HasOne("DooKamp.Domain.Entities.Curriculum.Grade", "Grade")
-                        .WithMany("LessonLocationGrades")
-                        .HasForeignKey("GradeId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("DooKamp.Domain.Entities.Lessons.Lesson", "Lesson")
-                        .WithMany("LessonLocationGrades")
-                        .HasForeignKey("LessonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DooKamp.Domain.Entities.Curriculum.Location", "Location")
-                        .WithMany("LessonLocationGrades")
-                        .HasForeignKey("LocationId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Grade");
-
-                    b.Navigation("Lesson");
-
-                    b.Navigation("Location");
-                });
-
-            modelBuilder.Entity("DooKamp.Domain.Entities.Lessons.LessonTopic", b =>
-                {
-                    b.HasOne("DooKamp.Domain.Entities.Lessons.Lesson", "Lesson")
-                        .WithMany("LessonTopics")
-                        .HasForeignKey("LessonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DooKamp.Domain.Entities.Curriculum.Topic", "Topic")
-                        .WithMany("LessonTopics")
-                        .HasForeignKey("TopicId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Lesson");
-
-                    b.Navigation("Topic");
-                });
-
             modelBuilder.Entity("DooKamp.Domain.Entities.Media.LessonContentMedia", b =>
                 {
                     b.HasOne("DooKamp.Domain.Entities.Lessons.LessonContent", "LessonContent")
-                        .WithMany("MediaItems")
+                        .WithMany("LessonContentMedias")
                         .HasForeignKey("LessonContentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -758,7 +739,7 @@ namespace DooKamp.Infrastructure.Persistence.Migrations
             modelBuilder.Entity("DooKamp.Domain.Entities.Quizzes.QuizOption", b =>
                 {
                     b.HasOne("DooKamp.Domain.Entities.Quizzes.QuizQuestion", "QuizQuestion")
-                        .WithMany("Options")
+                        .WithMany("QuizOptions")
                         .HasForeignKey("QuizQuestionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -775,7 +756,7 @@ namespace DooKamp.Infrastructure.Persistence.Migrations
                         .IsRequired();
 
                     b.HasOne("DooKamp.Domain.Entities.Quizzes.QuizOption", "QuizOption")
-                        .WithMany("Languages")
+                        .WithMany("QuizOptionLanguages")
                         .HasForeignKey("QuizOptionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -819,7 +800,7 @@ namespace DooKamp.Infrastructure.Persistence.Migrations
                         .IsRequired();
 
                     b.HasOne("DooKamp.Domain.Entities.Quizzes.QuizQuestion", "QuizQuestion")
-                        .WithMany("Languages")
+                        .WithMany("QuizQuestionLanguages")
                         .HasForeignKey("QuizQuestionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -829,10 +810,29 @@ namespace DooKamp.Infrastructure.Persistence.Migrations
                     b.Navigation("QuizQuestion");
                 });
 
+            modelBuilder.Entity("DooKamp.Domain.Entities.Topics.TopicLesson", b =>
+                {
+                    b.HasOne("DooKamp.Domain.Entities.Lessons.Lesson", "Lesson")
+                        .WithMany("TopicLessons")
+                        .HasForeignKey("LessonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DooKamp.Domain.Entities.Curriculum.Topic", "Topic")
+                        .WithMany("TopicLessons")
+                        .HasForeignKey("TopicId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Lesson");
+
+                    b.Navigation("Topic");
+                });
+
             modelBuilder.Entity("DooKamp.Domain.Entities.Vocabs.LessonContentVocabulary", b =>
                 {
                     b.HasOne("DooKamp.Domain.Entities.Lessons.LessonContent", "LessonContent")
-                        .WithMany("Vocabularies")
+                        .WithMany("LessonContentVocabularies")
                         .HasForeignKey("LessonContentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -857,7 +857,7 @@ namespace DooKamp.Infrastructure.Persistence.Migrations
                         .IsRequired();
 
                     b.HasOne("DooKamp.Domain.Entities.Vocabs.Vocabulary", "Vocabulary")
-                        .WithMany("Languages")
+                        .WithMany("VocabularyLanguages")
                         .HasForeignKey("VocabularyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -876,7 +876,7 @@ namespace DooKamp.Infrastructure.Persistence.Migrations
                         .IsRequired();
 
                     b.HasOne("DooKamp.Domain.Entities.Quizzes.QuizQuestion", "QuizQuestion")
-                        .WithMany("Answers")
+                        .WithMany("QuizQuestionAnswers")
                         .HasForeignKey("QuizQuestionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -888,12 +888,12 @@ namespace DooKamp.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("DooKamp.Domain.Entities.Curriculum.Grade", b =>
                 {
-                    b.Navigation("LessonLocationGrades");
+                    b.Navigation("TopicLocationGrades");
                 });
 
             modelBuilder.Entity("DooKamp.Domain.Entities.Curriculum.Location", b =>
                 {
-                    b.Navigation("LessonLocationGrades");
+                    b.Navigation("TopicLocationGrades");
                 });
 
             modelBuilder.Entity("DooKamp.Domain.Entities.Curriculum.Subject", b =>
@@ -905,7 +905,9 @@ namespace DooKamp.Infrastructure.Persistence.Migrations
                 {
                     b.Navigation("ChildTopics");
 
-                    b.Navigation("LessonTopics");
+                    b.Navigation("TopicLessons");
+
+                    b.Navigation("TopicLocationGrades");
                 });
 
             modelBuilder.Entity("DooKamp.Domain.Entities.Languages.Language", b =>
@@ -929,24 +931,22 @@ namespace DooKamp.Infrastructure.Persistence.Migrations
                 {
                     b.Navigation("LessonContents");
 
-                    b.Navigation("LessonLocationGrades");
-
-                    b.Navigation("LessonTopics");
-
                     b.Navigation("QuizQuestions");
+
+                    b.Navigation("TopicLessons");
                 });
 
             modelBuilder.Entity("DooKamp.Domain.Entities.Lessons.LessonContent", b =>
                 {
-                    b.Navigation("Audios");
+                    b.Navigation("LessonContentAudios");
 
-                    b.Navigation("Languages");
+                    b.Navigation("LessonContentLanguages");
 
-                    b.Navigation("MediaItems");
+                    b.Navigation("LessonContentMedias");
+
+                    b.Navigation("LessonContentVocabularies");
 
                     b.Navigation("QuizQuestions");
-
-                    b.Navigation("Vocabularies");
                 });
 
             modelBuilder.Entity("DooKamp.Domain.Entities.Media.Media", b =>
@@ -963,25 +963,25 @@ namespace DooKamp.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("DooKamp.Domain.Entities.Quizzes.QuizOption", b =>
                 {
-                    b.Navigation("Languages");
+                    b.Navigation("QuizOptionLanguages");
                 });
 
             modelBuilder.Entity("DooKamp.Domain.Entities.Quizzes.QuizQuestion", b =>
                 {
-                    b.Navigation("Answers");
+                    b.Navigation("QuizOptions");
 
-                    b.Navigation("Languages");
+                    b.Navigation("QuizQuestionAnswers");
 
-                    b.Navigation("Options");
+                    b.Navigation("QuizQuestionLanguages");
                 });
 
             modelBuilder.Entity("DooKamp.Domain.Entities.Vocabs.Vocabulary", b =>
                 {
-                    b.Navigation("Audios");
-
-                    b.Navigation("Languages");
-
                     b.Navigation("LessonContentVocabularies");
+
+                    b.Navigation("VocabularyAudios");
+
+                    b.Navigation("VocabularyLanguages");
 
                     b.Navigation("VocabularyMedias");
                 });

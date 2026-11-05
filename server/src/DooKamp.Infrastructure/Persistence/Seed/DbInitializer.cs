@@ -1,4 +1,3 @@
-using DooKamp.Domain.Entities.Curriculum;
 using Microsoft.EntityFrameworkCore;
 
 namespace DooKamp.Infrastructure.Persistence.Seed;
@@ -17,13 +16,13 @@ public static class DbInitializer
         await LanguageSeed.SeedAsync(context);
         await SubjectSeed.SeedAsync(context);
         await TopicSeed.SeedAsync(context);
+        await TopicLocationGradeSeed.SeedAsync(context);
         
         //Lesson
         await LessonSeed.SeedAsync(context);
         await TopicLessonSeed.SeedAsync(context);
         await LessonContentSeed.SeedAsync(context);
         await LessonContentLanguageSeed.SeedAsync(context);
-        await TopicLocationGradeSeed.SeedAsync(context);
 
         //Vocabulary
         await VocabularySeed.SeedAsync(context);
