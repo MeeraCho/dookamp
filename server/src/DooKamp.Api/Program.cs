@@ -9,6 +9,8 @@ using DooKamp.Api.Exceptions;
 using DooKamp.Application.Features.Lessons.GetLesson;
 using DooKamp.Application.Features.Subjects.GetSubjects;
 using DooKamp.Application.Interfaces.Subjects;
+using DooKamp.Application.Interfaces.Topics;
+using DooKamp.Application.Features.Topics.GetTopics;
 
 
 // 1. builder 생성 - 앱 시작점, 각종 설정 불러옴
@@ -29,6 +31,9 @@ builder.Services.AddScoped<GetLessonHandler>();
 
 builder.Services.AddScoped<ISubjectRepository, SubjectRepository>();
 builder.Services.AddScoped<GetSubjectsHandler>();
+
+builder.Services.AddScoped<ITopicRepository, TopicRepository>();
+builder.Services.AddScoped<GetTopicsHandler>();
 
 // FluentValidation validators Registration
 builder.Services.AddValidatorsFromAssemblyContaining<GetLessonsQueryValidator>();
