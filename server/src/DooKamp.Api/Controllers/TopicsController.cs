@@ -1,4 +1,5 @@
 using DooKamp.Application.Features.Topics.GetTopics;
+using DooKamp.Application.Features.Topics.GetTopicById;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DooKamp.Api.Controllers;
@@ -8,10 +9,14 @@ namespace DooKamp.Api.Controllers;
 public sealed class TopicsController : ControllerBase
 {
     private readonly GetTopicsHandler _getTopicsHandler;
+    private readonly GetTopicByIdHandler _getTopicByIdHandler;
 
-    public TopicsController(GetTopicsHandler getTopicsHandler)
+    public TopicsController(
+        GetTopicsHandler getTopicsHandler,
+        GetTopicByIdHandler getTopicByIdHandler)
     {
         _getTopicsHandler = getTopicsHandler;
+        _getTopicByIdHandler = getTopicByIdHandler;
     }
 
     [HttpGet]
@@ -33,5 +38,24 @@ public sealed class TopicsController : ControllerBase
             cancellationToken);
 
         return Ok(topics);
+    }
+
+    [HttpGet("{id:int}")]
+    public async Task<IActionResult> GetTopicById(
+        int id,
+        CancellationToken cancellationToken)
+    {
+        var query = new GetTopicByIdQuery(id);
+
+        var topic = await _getTopicByIdHandler.HandleAsync(
+            query,
+            cancellationToken);
+
+        if (topic is null)
+        {
+            return NotFound();
+        }
+
+        return Ok(topic);
     }
 }

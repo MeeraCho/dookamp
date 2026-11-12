@@ -10,4 +10,8 @@ public interface ITopicRepository
         int? gradeId,
         int? parentTopicId,
         CancellationToken cancellationToken = default);
+
+    Task<Topic?> GetTopicByIdAsync(
+        int id,
+        CancellationToken cancellationToken = default);
 }

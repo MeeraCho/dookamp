@@ -52,4 +52,18 @@ public sealed class TopicRepository : ITopicRepository
             .OrderBy(topic => topic.Name)
             .ToListAsync(cancellationToken);
     }
+
+    public async Task<Topic?> GetTopicByIdAsync(
+        int id,
+        CancellationToken cancellationToken = default)
+    {
+        return await _context.Topics
+            .AsNoTracking()
+            .Include(topic => topic.ChildTopics)
+            .Include(topic => topic.TopicLessons)
+                .ThenInclude(topicLesson => topicLesson.Lesson)
+            .FirstOrDefaultAsync(
+                topic => topic.Id == id,
+                cancellationToken);
+    }
 }
