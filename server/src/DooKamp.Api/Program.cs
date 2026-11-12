@@ -13,6 +13,9 @@ using DooKamp.Application.Interfaces.Topics;
 using DooKamp.Application.Features.Topics.GetTopics;
 using DooKamp.Application.Interfaces.Locations;
 using DooKamp.Application.Features.Locations.GetLocations;
+using DooKamp.Application.Interfaces.Grades;
+using DooKamp.Application.Features.Grades.GetGrades;
+using DooKamp.Infrastructure.Repositories.Grades;
 
 
 // 1. builder 생성 - 앱 시작점, 각종 설정 불러옴
@@ -39,6 +42,9 @@ builder.Services.AddScoped<GetTopicsHandler>();
 
 builder.Services.AddScoped<ILocationRepository, LocationRepository>();
 builder.Services.AddScoped<GetLocationsHandler>();
+
+builder.Services.AddScoped<IGradeRepository, GradeRepository>();
+builder.Services.AddScoped<GetGradesHandler>();
 
 // FluentValidation validators Registration
 builder.Services.AddValidatorsFromAssemblyContaining<GetLessonsQueryValidator>();
