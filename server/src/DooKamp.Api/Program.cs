@@ -17,6 +17,9 @@ using DooKamp.Application.Interfaces.Grades;
 using DooKamp.Application.Features.Grades.GetGrades;
 using DooKamp.Infrastructure.Repositories.Grades;
 using DooKamp.Application.Features.Topics.GetTopicById;
+using DooKamp.Application.Interfaces.Languages;
+using DooKamp.Infrastructure.Repositories.Languages;
+using DooKamp.Application.Features.Languages.GetLanguages;
 
 
 // 1. builder 생성 - 앱 시작점, 각종 설정 불러옴
@@ -48,6 +51,8 @@ builder.Services.AddScoped<GetLocationsHandler>();
 builder.Services.AddScoped<IGradeRepository, GradeRepository>();
 builder.Services.AddScoped<GetGradesHandler>();
 
+builder.Services.AddScoped<ILanguageRepository, LanguageRepository>();
+builder.Services.AddScoped<GetLanguagesHandler>();
 
 
 
